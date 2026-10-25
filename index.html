@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Prep Counter</title>
 <meta name="description" content="High-protein meal prep recipes, weekly plans and shopping lists for two.">
-<meta name="theme-color" content="#E9EEEA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#151B18" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F2F6F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161D19" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta property="og:title" content="Prep Counter">
-<meta property="og:description" content="High-protein meal prep: 43 recipes, weekly plans, and shopping lists.">
+<meta property="og:description" content="High-protein meal prep: 52 recipes, weekly plans, and shopping lists.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -20,10 +20,20 @@
 </head>
 <body>
 <header class="top">
-  <h1 class="brand">Prep Counter</h1>
-  <button class="icon-btn" id="shareApp" aria-label="Share this app">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
+  <div class="top-row">
+    <a class="brand" href="#recipes">Prep Counter</a>
+    <button class="share-btn" id="shareApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Share
+    </button>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#recipes" data-tab="recipes">Recipes</a>
+    <a href="#week" data-tab="week">Week</a>
+    <a href="#list" data-tab="list">Shopping</a>
+    <a href="#pantry" data-tab="pantry">Pantry</a>
+    <a href="#more" data-tab="more">Settings</a>
+  </nav>
 </header>
 
 <main id="view" tabindex="-1"></main>
@@ -31,22 +41,15 @@
 <div id="sheet" class="sheet" hidden>
   <div class="sheet-backdrop" data-close></div>
   <article class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
-    <button class="sheet-close icon-btn" data-close aria-label="Close">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <button class="sheet-close" data-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
     </button>
     <div id="sheetBody"></div>
   </article>
 </div>
 
+<input type="file" id="photoInput" accept="image/*" hidden>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-<nav class="tabs" aria-label="Sections">
-  <a href="#recipes" data-tab="recipes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Recipes</a>
-  <a href="#week" data-tab="week"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 10h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Week</a>
-  <a href="#list" data-tab="list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>List</a>
-  <a href="#pantry" data-tab="pantry"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 10h14M9 6.5v1M9 13v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Pantry</a>
-  <a href="#more" data-tab="more"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="19" cy="12" r="1.8" fill="currentColor"/></svg>More</a>
-</nav>
 
 <script src="app.js"></script>
 </body>

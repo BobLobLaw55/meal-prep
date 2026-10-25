@@ -1,5 +1,5 @@
 {
- "version": 1,
+ "version": 2,
  "ingredients": {
   "beef93": {
    "name": "93/7 lean ground beef",
@@ -433,6 +433,20 @@
    "aisle": "Produce",
    "pantry": null,
    "hint": null,
+   "stock": null
+  },
+  "tortilla_lg": {
+   "name": "uncooked flour tortillas, burrito size (e.g., TortillaLand)",
+   "unit": "each",
+   "g": 64,
+   "kcal": 312,
+   "p": 8,
+   "c": 50,
+   "f": 9,
+   "price": 0.55,
+   "aisle": "Dairy & Eggs",
+   "pantry": null,
+   "hint": "refrigerated, near the cheese",
    "stock": null
   },
   "sourdough": {
@@ -1859,10 +1873,6 @@
     "Grab & go"
    ],
    "blurb": "Your current egg bites, upgraded: blended cottage cheese makes them custardy like the coffee-shop version, and homemade turkey sausage adds real protein.",
-   "portion": {
-    "A": "4 bites",
-    "B": "2 bites"
-   },
    "steps": [
     "Heat the oven to 325°F and grease two 12-cup muffin tins well (silicone pans release easiest).",
     "Brown the turkey in a skillet with the maple, garlic powder, onion powder, paprika, crushed red pepper, ½ tsp salt, and pepper. Add the bell pepper and spinach for the last 2 minutes, then let it cool a bit.",
@@ -1875,8 +1885,6 @@
    "reheat": "Microwave 45–60 sec from the fridge, 90 sec from frozen.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "turkey",
@@ -1944,15 +1952,21 @@
      "n": ""
     }
    ],
-   "split": [
-    0.16666666666666666,
-    0.08333333333333333
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "2 egg bites",
    "batch": {
     "kcal": 2757,
     "p": 264,
     "c": 56,
     "f": 161
+   },
+   "perServing": {
+    "kcal": 230,
+    "p": 22,
+    "c": 5,
+    "f": 13
    },
    "macrosA": {
     "kcal": 459,
@@ -1967,6 +1981,8 @@
     "f": 13
    },
    "cost": 16.99,
+   "photo": "https://images.unsplash.com/photo-1642463045543-55998f3174fc?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1642463045543-55998f3174fc?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Easy Family Recipes",
     "url": "https://easyfamilyrecipes.com/cottage-cheese-egg-bites/"
@@ -1989,10 +2005,6 @@
     "Grab & go"
    ],
    "blurb": "Loaded with turkey sausage, eggs, crispy potatoes, and black beans. Make a dozen and you're covered on the busiest mornings.",
-   "portion": {
-    "A": "2 burritos",
-    "B": "1 burrito"
-   },
    "steps": [
     "Toss the potatoes with the oil and a pinch of salt, then air fry at 400°F for 15–18 minutes, shaking halfway, until crisp.",
     "Meanwhile, brown the turkey with the fajita seasoning in a large skillet. Stir in the black beans and move everything to a big bowl.",
@@ -2006,8 +2018,6 @@
    "notes": "Uncooked tortillas (TortillaLand) are just flour, water, oil, and salt, the closest thing to fresh bread you'll find in a tortilla.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "potatoes",
@@ -2070,15 +2080,21 @@
      "n": ""
     }
    ],
-   "split": [
-    0.16666666666666666,
-    0.08333333333333333
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 burrito",
    "batch": {
     "kcal": 5170,
     "p": 348,
     "c": 432,
     "f": 223
+   },
+   "perServing": {
+    "kcal": 431,
+    "p": 29,
+    "c": 36,
+    "f": 19
    },
    "macrosA": {
     "kcal": 862,
@@ -2093,6 +2109,8 @@
     "f": 19
    },
    "cost": 23.1,
+   "photo": "https://images.unsplash.com/photo-1635107420756-9f930ed6c97b?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1635107420756-9f930ed6c97b?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Skinnytaste",
     "url": "https://www.skinnytaste.com/freezer-breakfast-burritos/"
@@ -2115,10 +2133,6 @@
     "Bowl"
    ],
    "blurb": "Sheet-pan sweet potatoes, maple-sage-style turkey sausage, peppers, and pre-peeled jammy eggs. Sweet, savory, and filling.",
-   "portion": {
-    "A": "Heaping 1½ cups hash + 2 eggs",
-    "B": "1 cup hash + 1 egg"
-   },
    "steps": [
     "Heat the oven to 425°F. Toss the sweet potatoes, onion, and peppers with the oil and Kinder's veggie rub, then spread across two sheet pans. Roast 25–30 minutes, flipping once, until browned at the edges.",
     "Brown the turkey with the maple, garlic powder, paprika, salt, and crushed red pepper, breaking it into small crumbles. Wilt the spinach in at the end.",
@@ -2129,8 +2143,6 @@
    "reheat": "Microwave the hash 1½–2 min. Add the egg after reheating, either cold or for 15 seconds, so it doesn't explode or go rubbery.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "sweetpot",
@@ -2198,29 +2210,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.16,
-    0.09
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "about 1 cup hash + 1 jammy egg",
    "batch": {
     "kcal": 3449,
     "p": 270,
     "c": 234,
     "f": 159
    },
+   "perServing": {
+    "kcal": 287,
+    "p": 22,
+    "c": 20,
+    "f": 13
+   },
    "macrosA": {
-    "kcal": 552,
-    "p": 43,
-    "c": 37,
-    "f": 25
+    "kcal": 575,
+    "p": 45,
+    "c": 39,
+    "f": 26
    },
    "macrosB": {
-    "kcal": 310,
-    "p": 24,
-    "c": 21,
-    "f": 14
+    "kcal": 287,
+    "p": 22,
+    "c": 20,
+    "f": 13
    },
    "cost": 21.01,
+   "photo": "https://images.unsplash.com/photo-1606791422814-b32c705e3e2f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1606791422814-b32c705e3e2f?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Real Food Dietitians",
     "url": "https://therealfooddietitians.com/chicken-apple-sausage-sweet-potato-hash/"
@@ -2243,10 +2263,6 @@
     "Sweet"
    ],
    "blurb": "Ten minutes, zero cooking. Greek yogurt and whey make it creamy and pack 35+ grams into the big jars.",
-   "portion": {
-    "A": "1 large jar (~2 cups)",
-    "B": "1 small jar (~1¼ cups)"
-   },
    "steps": [
     "In a big bowl, whisk the yogurt, almond milk, whey, maple, vanilla, cinnamon, and salt until there are no protein lumps.",
     "Stir in the oats and chia.",
@@ -2258,8 +2274,6 @@
    "notes": "{A}: add 2 hard-boiled eggs or a cheese stick to land at 45 g.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "oats",
@@ -2312,29 +2326,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.155,
-    0.095
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 small jar (about ¾ cup)",
    "batch": {
     "kcal": 2593,
     "p": 242,
     "c": 307,
     "f": 49
    },
+   "perServing": {
+    "kcal": 216,
+    "p": 20,
+    "c": 26,
+    "f": 4
+   },
    "macrosA": {
-    "kcal": 402,
-    "p": 37,
-    "c": 48,
+    "kcal": 432,
+    "p": 40,
+    "c": 51,
     "f": 8
    },
    "macrosB": {
-    "kcal": 246,
-    "p": 23,
-    "c": 29,
-    "f": 5
+    "kcal": 216,
+    "p": 20,
+    "c": 26,
+    "f": 4
    },
    "cost": 15.56,
+   "photo": "https://images.unsplash.com/photo-1490371475955-4cb3bfc72f71?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1490371475955-4cb3bfc72f71?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Bake & Bacon",
     "url": "https://www.bakeandbacon.com/high-protein-overnight-oats-3-ways/"
@@ -2357,10 +2379,6 @@
     "Sandwich"
    ],
    "blurb": "A big tray of turkey, spinach, tomato, and feta eggs cut into squares and stacked on toasted sourdough English muffins.",
-   "portion": {
-    "A": "2 squares + 1 muffin",
-    "B": "1 square + 1 muffin"
-   },
    "steps": [
     "Heat the oven to 375°F and line a 13×18 sheet pan with parchment that goes up the sides (it releases far better than spray alone).",
     "Brown the turkey with the oregano, garlic powder, and ½ tsp salt.",
@@ -2373,8 +2391,6 @@
    "reheat": "Square: 45–60 sec in the microwave. Muffin: toaster or 3 min in the air fryer.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "turkey",
@@ -2438,33 +2454,41 @@
     },
     {
      "k": "sdmuffin",
-     "q": 8,
+     "q": 6,
      "n": ""
     }
    ],
-   "split": [
-    0.155,
-    0.095
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 egg square on half an English muffin",
    "batch": {
-    "kcal": 3856,
-    "p": 314,
-    "c": 257,
-    "f": 166
+    "kcal": 3588,
+    "p": 305,
+    "c": 205,
+    "f": 165
+   },
+   "perServing": {
+    "kcal": 299,
+    "p": 25,
+    "c": 17,
+    "f": 14
    },
    "macrosA": {
     "kcal": 598,
-    "p": 49,
-    "c": 40,
-    "f": 26
+    "p": 51,
+    "c": 34,
+    "f": 27
    },
    "macrosB": {
-    "kcal": 366,
-    "p": 30,
-    "c": 24,
-    "f": 16
+    "kcal": 299,
+    "p": 25,
+    "c": 17,
+    "f": 14
    },
-   "cost": 26.42,
+   "cost": 25.12,
+   "photo": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Clemson Extension – Stirring Up Healthy Recipes",
     "url": "https://blogs.clemson.edu/stirringuphealthyrecipes/mediterranean-sheet-pan-eggs/"
@@ -2488,10 +2512,6 @@
     "Grab & go"
    ],
    "blurb": "Better than drive-thru. Homemade turkey sausage patties, baked egg rounds, and sharp cheddar on sourdough English muffins.",
-   "portion": {
-    "A": "2 sandwiches",
-    "B": "1 sandwich"
-   },
    "steps": [
     "Heat the oven to 350°F. Grease a 12-cup muffin tin, or use a parchment-lined 9×13 and cut squares.",
     "Whisk the eggs and egg whites with half the salt and pour into the tin. Bake 15–18 minutes, until set.",
@@ -2503,8 +2523,6 @@
    "reheat": "From frozen: unwrap, wrap in a paper towel, and microwave 60–90 sec at 50% power, then 30 sec at full. Or air fry 8 min at 320°F.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "turkey",
@@ -2567,15 +2585,21 @@
      "n": ""
     }
    ],
-   "split": [
-    0.16666666666666666,
-    0.08333333333333333
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 sandwich",
    "batch": {
     "kcal": 4681,
     "p": 344,
     "c": 342,
     "f": 205
+   },
+   "perServing": {
+    "kcal": 390,
+    "p": 29,
+    "c": 28,
+    "f": 17
    },
    "macrosA": {
     "kcal": 780,
@@ -2590,6 +2614,8 @@
     "f": 17
    },
    "cost": 23.49,
+   "photo": "https://images.unsplash.com/photo-1585684276730-a1aeacbf638f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1585684276730-a1aeacbf638f?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Chef Savvy",
     "url": "https://chefsavvy.com/freezer-breakfast-sandwiches/"
@@ -2612,10 +2638,6 @@
     "Freezer stash"
    ],
    "blurb": "Uses the Kodiak mix you already have plus cottage cheese and egg whites. Fluffy, freezable, and 40+ grams in a stack.",
-   "portion": {
-    "A": "4 pancakes + ½ cup yogurt",
-    "B": "2 pancakes + ¼ cup yogurt"
-   },
    "steps": [
     "Blend the cottage cheese, eggs, egg whites, almond milk, vanilla, and cinnamon until smooth.",
     "Pour into a bowl and fold in the Kodiak mix until just combined. Rest 5 minutes while the pan heats.",
@@ -2626,8 +2648,6 @@
    "reheat": "Microwave 45–60 sec, or the toaster from frozen.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "kodiak",
@@ -2680,15 +2700,21 @@
      "n": "for serving"
     }
    ],
-   "split": [
-    0.16666666666666666,
-    0.08333333333333333
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "2 pancakes with yogurt and berries",
    "batch": {
     "kcal": 2733,
     "p": 250,
     "c": 311,
     "f": 57
+   },
+   "perServing": {
+    "kcal": 228,
+    "p": 21,
+    "c": 26,
+    "f": 5
    },
    "macrosA": {
     "kcal": 456,
@@ -2703,6 +2729,8 @@
     "f": 5
    },
    "cost": 16.05,
+   "photo": "https://images.unsplash.com/photo-1612182062633-9ff3b3598e96?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1612182062633-9ff3b3598e96?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Eat the Gains",
     "url": "https://eatthegains.com/cottage-cheese-pancakes/"
@@ -2724,10 +2752,6 @@
     "Bowl"
    ],
    "blurb": "Your breakfast bowls, dialed in: crispy air-fried potatoes, sausage-seasoned turkey, fluffy eggs, cheddar, and salsa on the side.",
-   "portion": {
-    "A": "Heaping bowl (~2 cups)",
-    "B": "Regular bowl (~1¼ cups)"
-   },
    "steps": [
     "Toss the potatoes with the oil and Dan-O's, then air fry at 400°F for 18–20 minutes, shaking twice.",
     "Brown the turkey with the maple, garlic powder, paprika, and salt. Add the peppers and onion and cook 5 more minutes.",
@@ -2738,8 +2762,6 @@
    "reheat": "Microwave 1½–2 min, stirring once. Add salsa after.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "potatoes",
@@ -2812,29 +2834,37 @@
      "n": "for serving"
     }
    ],
-   "split": [
-    0.155,
-    0.095
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "about 1 cup",
    "batch": {
     "kcal": 3633,
     "p": 287,
     "c": 241,
     "f": 165
    },
+   "perServing": {
+    "kcal": 303,
+    "p": 24,
+    "c": 20,
+    "f": 14
+   },
    "macrosA": {
-    "kcal": 563,
-    "p": 45,
-    "c": 37,
-    "f": 26
+    "kcal": 606,
+    "p": 48,
+    "c": 40,
+    "f": 28
    },
    "macrosB": {
-    "kcal": 345,
-    "p": 27,
-    "c": 23,
-    "f": 16
+    "kcal": 303,
+    "p": 24,
+    "c": 20,
+    "f": 14
    },
    "cost": 22.53,
+   "photo": "https://images.unsplash.com/photo-1683990049119-44154297338f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1683990049119-44154297338f?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Girl on Bloor",
     "url": "https://thegirlonbloor.com/breakfast-bowls/"
@@ -2858,10 +2888,6 @@
     "Freezer stash"
    ],
    "blurb": "The weekend brunch casserole you can actually meal prep. Uses real sourdough, assembles the night before, and bakes Sunday morning.",
-   "portion": {
-    "A": "2 squares",
-    "B": "1 square"
-   },
    "steps": [
     "Brown the turkey with the Weber garlic & herb, paprika, and onion. Wilt in the spinach.",
     "Grease a 9×13 and layer half the bread, half the turkey mix, and half the cheddar. Repeat.",
@@ -2873,8 +2899,6 @@
    "reheat": "Microwave 1–1½ min, or 6 min in the air fryer at 330°F for crispy edges.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "sourdough",
@@ -2947,15 +2971,21 @@
      "n": ""
     }
    ],
-   "split": [
-    0.16666666666666666,
-    0.08333333333333333
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 square",
    "batch": {
     "kcal": 4156,
     "p": 333,
     "c": 250,
     "f": 198
+   },
+   "perServing": {
+    "kcal": 346,
+    "p": 28,
+    "c": 21,
+    "f": 16
    },
    "macrosA": {
     "kcal": 693,
@@ -2970,6 +3000,8 @@
     "f": 16
    },
    "cost": 21.68,
+   "photo": "https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Andy Cooks",
     "url": "https://www.andy-cooks.com/blogs/recipes/sausage-and-parmesan-strata"
@@ -2994,10 +3026,6 @@
     "Grab & go"
    ],
    "blurb": "Tastes like banana bread, eats like breakfast. Blended cottage cheese and whey keep it moist and high-protein.",
-   "portion": {
-    "A": "2 large squares",
-    "B": "1 large square"
-   },
    "steps": [
     "Heat the oven to 375°F and grease a 9×13.",
     "Blend the bananas, cottage cheese, yogurt, eggs, almond milk, maple, and vanilla until smooth.",
@@ -3010,8 +3038,6 @@
    "notes": "{A}: add a Greek yogurt cup or 2 eggs on the side to clear 45 g.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "oats",
@@ -3079,29 +3105,37 @@
      "n": "blueberries if you can"
     }
    ],
-   "split": [
-    0.155,
-    0.095
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 square",
    "batch": {
     "kcal": 2749,
     "p": 234,
     "c": 340,
     "f": 55
    },
+   "perServing": {
+    "kcal": 229,
+    "p": 19,
+    "c": 28,
+    "f": 5
+   },
    "macrosA": {
-    "kcal": 426,
-    "p": 36,
-    "c": 53,
+    "kcal": 458,
+    "p": 39,
+    "c": 57,
     "f": 9
    },
    "macrosB": {
-    "kcal": 261,
-    "p": 22,
-    "c": 32,
+    "kcal": 229,
+    "p": 19,
+    "c": 28,
     "f": 5
    },
    "cost": 14.92,
+   "photo": "https://images.unsplash.com/photo-1572526474144-98925b3468df?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1572526474144-98925b3468df?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Real Food Dietitians",
     "url": "https://therealfooddietitians.com/baked-vanilla-protein-oatmeal/"
@@ -3126,10 +3160,6 @@
     "Grab & go"
    ],
    "blurb": "Homemade chorizo seasoning on lean ground beef (no mystery-meat sausage) plus green chiles and cheddar. Uses your freezer beef.",
-   "portion": {
-    "A": "4 muffins",
-    "B": "2 muffins"
-   },
    "steps": [
     "Heat the oven to 350°F and grease two 12-cup muffin tins.",
     "Brown the beef, then stir in the chili powder, paprika, cumin, oregano, garlic powder, cinnamon, vinegar, and ½ tsp salt. Cook 1 minute until fragrant. Add the bell pepper and green chiles.",
@@ -3140,8 +3170,6 @@
    "storage": "Fridge 4 days; freezer 2 months.",
    "reheat": "Microwave 45–60 sec. Salsa or hot sauce on top.",
    "meal": "breakfast",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "beef93",
@@ -3219,15 +3247,21 @@
      "n": ""
     }
    ],
-   "split": [
-    0.16666666666666666,
-    0.08333333333333333
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "2 egg muffins",
    "batch": {
     "kcal": 2831,
     "p": 300,
     "c": 25,
     "f": 162
+   },
+   "perServing": {
+    "kcal": 236,
+    "p": 25,
+    "c": 2,
+    "f": 13
    },
    "macrosA": {
     "kcal": 472,
@@ -3242,6 +3276,8 @@
     "f": 13
    },
    "cost": 19.99,
+   "photo": "https://images.unsplash.com/photo-1587900437942-8758241767ef?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1587900437942-8758241767ef?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Seaside Baker",
     "url": "https://theseasidebaker.com/chorizo-egg-muffins/"
@@ -3263,10 +3299,6 @@
     "Bowl"
    ],
    "blurb": "Diner-style steak and eggs: seared sirloin with your Kinder's Prime Steak, crispy potatoes, peppers, and onions.",
-   "portion": {
-    "A": "Heaping bowl",
-    "B": "Regular bowl"
-   },
    "steps": [
     "Toss the potatoes with 1 tbsp oil and the Weber garlic parmesan, then air fry at 400°F for 18–20 minutes.",
     "Pat the steak dry and season with the steak seasoning. Sear in a ripping-hot skillet with the remaining oil, 3–4 minutes a side for medium-rare (it'll cook more on reheat). Rest 10 minutes and slice thin against the grain.",
@@ -3278,8 +3310,6 @@
    "reheat": "Microwave at 70% power for 2 min so the steak doesn't overcook. Hot sauce after.",
    "meal": "breakfast",
    "heat": "mild",
-   "nA": 4,
-   "nB": 4,
    "ingredients": [
     {
      "k": "potatoes",
@@ -3332,32 +3362,1124 @@
      "n": "for serving"
     }
    ],
-   "split": [
-    0.155,
-    0.095
-   ],
+   "servings": 12,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "about 1 cup",
    "batch": {
     "kcal": 2960,
     "p": 255,
     "c": 191,
     "f": 127
    },
+   "perServing": {
+    "kcal": 247,
+    "p": 21,
+    "c": 16,
+    "f": 11
+   },
    "macrosA": {
-    "kcal": 459,
-    "p": 40,
-    "c": 30,
-    "f": 20
+    "kcal": 493,
+    "p": 43,
+    "c": 32,
+    "f": 21
    },
    "macrosB": {
-    "kcal": 281,
-    "p": 24,
-    "c": 18,
-    "f": 12
+    "kcal": 247,
+    "p": 21,
+    "c": 16,
+    "f": 11
    },
    "cost": 23.72,
+   "photo": "https://images.unsplash.com/photo-1676037150429-77d231b14c4e?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1676037150429-77d231b14c4e?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Idahoan Foodservice",
     "url": "https://www.idahoanfoodservice.com/recipe/steak-and-eggs-hash-brown-bowl/"
+   }
+  },
+  {
+   "id": "chicken-caesar-wraps",
+   "title": "Chicken Caesar Wraps",
+   "protein": "Chicken",
+   "cuisine": "American",
+   "active": 20,
+   "total": 30,
+   "freezer": false,
+   "equipment": [
+    "Stovetop"
+   ],
+   "tags": [
+    "Wrap",
+    "Quick"
+   ],
+   "blurb": "Seared garlic-parm chicken, crisp romaine, and a Greek-yogurt Caesar dressing that's lighter than the bottle (and has more protein), rolled up in fresh tortillas.",
+   "steps": [
+    "Season the chicken with the garlic parmesan and sear in the oil, 5–6 minutes a side, until 160°F. Rest 5 minutes and slice thin.",
+    "Dressing: whisk the yogurt, half the parmesan, the lemon juice, Dijon, Worcestershire, garlic, and pepper. Thin with water to drizzle.",
+    "Cook the tortillas per the package and let them cool.",
+    "Toss the romaine with half the dressing. Fill each tortilla with lettuce, chicken, the rest of the parmesan, and a drizzle of dressing, then roll tight and wrap in foil.",
+    "Or keep the parts separate and roll fresh. It takes two minutes and keeps the lettuce crisp."
+   ],
+   "storage": "Fridge 2 days rolled, or 4 days with the parts separate.",
+   "reheat": "Eat cold.",
+   "meal": "lunch",
+   "heat": "mild",
+   "ingredients": [
+    {
+     "k": "breast",
+     "q": 1.5,
+     "n": "pounded even"
+    },
+    {
+     "k": "garlicparm",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "oil",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "yogurt",
+     "q": 0.75,
+     "n": ""
+    },
+    {
+     "k": "parm",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "lemonjuice",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "dijon",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "worcester",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "garlic",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "blackpepper",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "romaine",
+     "q": 2,
+     "n": "chopped and dried well"
+    },
+    {
+     "k": "tortilla_lg",
+     "q": 6,
+     "n": ""
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 wrap",
+   "batch": {
+    "kcal": 2562,
+    "p": 227,
+    "c": 223,
+    "f": 82
+   },
+   "perServing": {
+    "kcal": 427,
+    "p": 38,
+    "c": 37,
+    "f": 14
+   },
+   "macrosA": {
+    "kcal": 854,
+    "p": 76,
+    "c": 74,
+    "f": 27
+   },
+   "macrosB": {
+    "kcal": 427,
+    "p": 38,
+    "c": 37,
+    "f": 14
+   },
+   "cost": 14.4,
+   "photo": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "The Wooden Skillet",
+    "url": "https://thewoodenskillet.com/chicken-caesar-wrap/"
+   }
+  },
+  {
+   "id": "buffalo-chicken-wraps",
+   "title": "Buffalo Chicken Ranch Wraps",
+   "protein": "Chicken",
+   "cuisine": "American",
+   "active": 20,
+   "total": 30,
+   "freezer": false,
+   "heat": "medium",
+   "equipment": [
+    "Stovetop"
+   ],
+   "tags": [
+    "Wrap",
+    "Quick"
+   ],
+   "blurb": "Spicy buffalo chicken, cool yogurt ranch, cheddar, and crunchy celery. All the wing flavor, packed for lunch.",
+   "steps": [
+    "Season the chicken strips with the kick'n chicken and sear in the oil until cooked through, 6–8 minutes. Toss with the hot sauce while hot.",
+    "Ranch: stir the yogurt with the ranch seasoning and a splash of water.",
+    "Cook the tortillas and let them cool.",
+    "Layer ranch, lettuce, celery, chicken, and cheddar, then roll tight. Or pack the parts separately."
+   ],
+   "storage": "Fridge 2 days rolled, or 4 days with the parts separate.",
+   "reheat": "Eat cold, or warm the chicken 45 sec before rolling.",
+   "meal": "lunch",
+   "ingredients": [
+    {
+     "k": "breast",
+     "q": 1.5,
+     "n": "cut into strips"
+    },
+    {
+     "k": "kickinchicken",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "oil",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "hotsauce",
+     "q": 4,
+     "n": ""
+    },
+    {
+     "k": "yogurt",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "ranchseason",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "cheddar",
+     "q": 0.75,
+     "n": ""
+    },
+    {
+     "k": "romaine",
+     "q": 1,
+     "n": "shredded"
+    },
+    {
+     "k": "celery",
+     "q": 2,
+     "n": "thinly sliced"
+    },
+    {
+     "k": "tortilla_lg",
+     "q": 6,
+     "n": ""
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 wrap",
+   "batch": {
+    "kcal": 2604,
+    "p": 219,
+    "c": 209,
+    "f": 95
+   },
+   "perServing": {
+    "kcal": 434,
+    "p": 37,
+    "c": 35,
+    "f": 16
+   },
+   "macrosA": {
+    "kcal": 868,
+    "p": 73,
+    "c": 70,
+    "f": 32
+   },
+   "macrosB": {
+    "kcal": 434,
+    "p": 37,
+    "c": 35,
+    "f": 16
+   },
+   "cost": 12.63,
+   "photo": "https://images.unsplash.com/photo-1719282431565-3b30bb7d2658?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1719282431565-3b30bb7d2658?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "Fed & Fit",
+    "url": "https://fedandfit.com/buffalo-chicken-wrap/"
+   }
+  },
+  {
+   "id": "sheet-pan-fajita-bowls",
+   "title": "Sheet-Pan Chicken Fajita Bowls",
+   "protein": "Chicken",
+   "cuisine": "Mexican",
+   "active": 15,
+   "total": 35,
+   "freezer": true,
+   "equipment": [
+    "Oven"
+   ],
+   "tags": [
+    "Bowl",
+    "Sheet pan"
+   ],
+   "blurb": "Everything roasts on one pan (fajita chicken, peppers, onions) and goes over lime rice and black beans. Barely any dishes.",
+   "steps": [
+    "Heat the oven to 425°F. Toss the chicken, peppers, and onion with the oil and fajita seasoning, then spread on a big sheet pan.",
+    "Roast 20–22 minutes, then broil 2 minutes for char.",
+    "Cook the rice and stir in the lime juice. Warm the beans.",
+    "Portion rice, beans, chicken, and veggies. Salsa and yogurt go on the side."
+   ],
+   "storage": "Fridge 4 days; freezer 2 months (without toppings).",
+   "reheat": "Microwave 2 min.",
+   "meal": "lunch",
+   "heat": "mild",
+   "ingredients": [
+    {
+     "k": "breast",
+     "q": 1.5,
+     "n": "sliced into strips"
+    },
+    {
+     "k": "fajita",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "oil",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "pepper",
+     "q": 3,
+     "n": "sliced"
+    },
+    {
+     "k": "onion",
+     "q": 1,
+     "n": "sliced"
+    },
+    {
+     "k": "rice",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "limejuice",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "blackbeans",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "salsa",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "yogurt",
+     "q": 0.5,
+     "n": ""
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
+   "batch": {
+    "kcal": 2390,
+    "p": 210,
+    "c": 269,
+    "f": 50
+   },
+   "perServing": {
+    "kcal": 398,
+    "p": 35,
+    "c": 45,
+    "f": 8
+   },
+   "macrosA": {
+    "kcal": 797,
+    "p": 70,
+    "c": 90,
+    "f": 17
+   },
+   "macrosB": {
+    "kcal": 398,
+    "p": 35,
+    "c": 45,
+    "f": 8
+   },
+   "cost": 13.26,
+   "photo": "https://images.unsplash.com/photo-1788601988443-9b859ba3fdf4?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1788601988443-9b859ba3fdf4?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "Oh Snap! Macros",
+    "url": "https://ohsnapmacros.com/sheet-pan-fajita-bowls"
+   }
+  },
+  {
+   "id": "chicken-rice-broccoli-boxes",
+   "title": "Cheesy Chicken, Rice & Broccoli Boxes",
+   "protein": "Chicken",
+   "cuisine": "American",
+   "active": 15,
+   "total": 30,
+   "freezer": true,
+   "equipment": [
+    "Stovetop"
+   ],
+   "tags": [
+    "Bowl",
+    "Quick"
+   ],
+   "blurb": "The classic gym-bro box, made actually tasty. Dan-O's chicken, garlicky rice, broccoli, and a little melted cheddar on top.",
+   "steps": [
+    "Cook the rice in the broth with the garlic powder instead of water.",
+    "Toss the chicken with the Dan-O's and sear in the oil until golden and cooked through, 7–8 minutes.",
+    "Steam the broccoli and hit it with the lemon juice and a pinch of salt.",
+    "Portion rice, chicken, and broccoli, then sprinkle cheddar on top so it melts when you reheat."
+   ],
+   "storage": "Fridge 4 days; freezer 2 months.",
+   "reheat": "Microwave 2 min.",
+   "meal": "lunch",
+   "heat": "mild",
+   "ingredients": [
+    {
+     "k": "breast",
+     "q": 1.75,
+     "n": "cut into bites"
+    },
+    {
+     "k": "danos",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "oil",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "rice",
+     "q": 1.25,
+     "n": ""
+    },
+    {
+     "k": "garlicpowder",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "broth",
+     "q": 2.5,
+     "n": "cook the rice in this"
+    },
+    {
+     "k": "broccoli",
+     "q": 4,
+     "n": ""
+    },
+    {
+     "k": "cheddar",
+     "q": 0.75,
+     "n": ""
+    },
+    {
+     "k": "lemonjuice",
+     "q": 1,
+     "n": ""
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
+   "batch": {
+    "kcal": 2381,
+    "p": 227,
+    "c": 206,
+    "f": 66
+   },
+   "perServing": {
+    "kcal": 397,
+    "p": 38,
+    "c": 34,
+    "f": 11
+   },
+   "macrosA": {
+    "kcal": 794,
+    "p": 76,
+    "c": 69,
+    "f": 22
+   },
+   "macrosB": {
+    "kcal": 397,
+    "p": 38,
+    "c": 34,
+    "f": 11
+   },
+   "cost": 11.29,
+   "photo": "https://images.unsplash.com/photo-1667499745120-f9bcef8f584e?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1667499745120-f9bcef8f584e?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "Gimme Some Oven",
+    "url": "https://www.gimmesomeoven.com/cheesy-broccoli-chicken-rice-bowls-meal-prep"
+   }
+  },
+  {
+   "id": "lemon-herb-chicken-sweet-potato",
+   "title": "Lemon Herb Chicken & Sweet Potato Boxes",
+   "protein": "Chicken",
+   "cuisine": "Mediterranean",
+   "active": 15,
+   "total": 40,
+   "freezer": false,
+   "equipment": [
+    "Oven"
+   ],
+   "tags": [
+    "Sheet pan"
+   ],
+   "blurb": "Bright lemon-garlic chicken with roasted sweet potatoes and green beans. Simple, clean, and good cold or hot.",
+   "steps": [
+    "Marinate the chicken in the lemon juice, 1 tbsp oil, the garlic & herb, oregano, garlic, and half the salt for at least 15 minutes.",
+    "Heat the oven to 425°F. Toss the sweet potatoes with the remaining oil, smoked paprika, and salt and roast 15 minutes.",
+    "Add the chicken and green beans to the pan and roast 20 minutes more, until the chicken hits 160°F.",
+    "Rest, slice, and portion."
+   ],
+   "storage": "Fridge 4 days.",
+   "reheat": "Microwave 1½–2 min, or eat cold.",
+   "meal": "lunch",
+   "heat": "mild",
+   "ingredients": [
+    {
+     "k": "breast",
+     "q": 1.75,
+     "n": ""
+    },
+    {
+     "k": "lemonjuice",
+     "q": 3,
+     "n": ""
+    },
+    {
+     "k": "oil",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "garlicherb",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "oregano",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "garlic",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "salt",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "sweetpot",
+     "q": 1.5,
+     "n": "cubed"
+    },
+    {
+     "k": "smokedpaprika",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "greenbeans",
+     "q": 3,
+     "n": ""
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
+   "batch": {
+    "kcal": 1922,
+    "p": 197,
+    "c": 169,
+    "f": 49
+   },
+   "perServing": {
+    "kcal": 320,
+    "p": 33,
+    "c": 28,
+    "f": 8
+   },
+   "macrosA": {
+    "kcal": 641,
+    "p": 66,
+    "c": 56,
+    "f": 16
+   },
+   "macrosB": {
+    "kcal": 320,
+    "p": 33,
+    "c": 28,
+    "f": 8
+   },
+   "cost": 10.16,
+   "photo": "https://images.unsplash.com/photo-1666819691716-827f78d892f3?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1666819691716-827f78d892f3?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "Texas A&M AgriLife – Dinner Tonight",
+    "url": "https://dinnertonight.tamu.edu/recipe/lemon-garlic-chicken/"
+   }
+  },
+  {
+   "id": "beef-crunchwraps",
+   "title": "Air Fryer Beef Crunchwraps",
+   "protein": "Beef",
+   "cuisine": "Tex-Mex",
+   "active": 25,
+   "total": 35,
+   "freezer": true,
+   "equipment": [
+    "Air fryer",
+    "Stovetop"
+   ],
+   "tags": [
+    "Wrap",
+    "Freezer stash"
+   ],
+   "blurb": "A better-than-the-drive-thru crunchwrap: seasoned lean beef, cheddar, and a yogurt 'sour cream', folded and air-fried crispy. Uses your freezer beef.",
+   "steps": [
+    "Brown the beef, then stir in the spices, salt, tomato paste, and a splash of water. Simmer until thick.",
+    "Lightly cook the tortillas so they're pliable.",
+    "Spread yogurt and salsa in the center of each tortilla, add beef and cheddar, then fold the edges in like a pinwheel to seal.",
+    "Air fry seam-side down at 380°F for 5–6 minutes, flip, and crisp 3 more.",
+    "Add lettuce and tomato at eating time, or tuck them in fresh if you're eating right away."
+   ],
+   "storage": "Fridge 4 days; freezer 2 months (wrap individually).",
+   "reheat": "Air fry 6–8 min at 360°F (from frozen, 12 min). The microwave works but loses the crunch.",
+   "meal": "lunch",
+   "heat": "mild",
+   "ingredients": [
+    {
+     "k": "beef93",
+     "q": 1.5,
+     "n": ""
+    },
+    {
+     "k": "chilipowder",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "cumin",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "garlicpowder",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "onionpowder",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "paprika",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "salt",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "tpaste",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "tortilla_lg",
+     "q": 6,
+     "n": ""
+    },
+    {
+     "k": "cheddar",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "yogurt",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "salsa",
+     "q": 0.25,
+     "n": ""
+    },
+    {
+     "k": "romaine",
+     "q": 1,
+     "n": "shredded, for serving"
+    },
+    {
+     "k": "tomato",
+     "q": 1,
+     "n": "diced, for serving"
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 crunchwrap",
+   "batch": {
+    "kcal": 2870,
+    "p": 218,
+    "c": 222,
+    "f": 121
+   },
+   "perServing": {
+    "kcal": 478,
+    "p": 36,
+    "c": 37,
+    "f": 20
+   },
+   "macrosA": {
+    "kcal": 957,
+    "p": 73,
+    "c": 74,
+    "f": 40
+   },
+   "macrosB": {
+    "kcal": 478,
+    "p": 36,
+    "c": 37,
+    "f": 20
+   },
+   "cost": 18.34,
+   "photo": "https://images.unsplash.com/photo-1778168199427-4e839943d20f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1778168199427-4e839943d20f?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "Lauren Fit Foodie",
+    "url": "https://laurenfitfoodie.com/crunchwrap-supreme/"
+   }
+  },
+  {
+   "id": "greek-yogurt-chicken-salad",
+   "title": "Greek Yogurt Chicken Salad Sandwiches",
+   "protein": "Chicken",
+   "cuisine": "American",
+   "active": 20,
+   "total": 35,
+   "freezer": false,
+   "equipment": [
+    "Stovetop"
+   ],
+   "tags": [
+    "Sandwich",
+    "No reheat"
+   ],
+   "blurb": "Creamy, tangy chicken salad made with Greek yogurt instead of mayo, plus pickles and celery for crunch, on toasted sourdough. A no-microwave lunch.",
+   "steps": [
+    "Poach the chicken: cover with the broth and water, bring to a simmer, cover, and cook on low 12–15 minutes, until 160°F. Cool and shred or dice.",
+    "Mix the yogurt, Dijon, lemon juice, dill, garlic powder, salt, and pepper.",
+    "Fold in the chicken, celery, pickles, and red onion.",
+    "Pack the salad separately and build sandwiches on toasted sourdough with lettuce at lunchtime."
+   ],
+   "storage": "Fridge 4 days.",
+   "reheat": "No reheating. Toast the bread if you can.",
+   "meal": "lunch",
+   "heat": "mild",
+   "ingredients": [
+    {
+     "k": "breast",
+     "q": 1.5,
+     "n": ""
+    },
+    {
+     "k": "broth",
+     "q": 2,
+     "n": "for poaching"
+    },
+    {
+     "k": "yogurt",
+     "q": 0.75,
+     "n": ""
+    },
+    {
+     "k": "dijon",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "lemonjuice",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "celery",
+     "q": 3,
+     "n": "diced"
+    },
+    {
+     "k": "pickles",
+     "q": 2,
+     "n": "chopped"
+    },
+    {
+     "k": "redonion",
+     "q": 0.25,
+     "n": "minced"
+    },
+    {
+     "k": "dill",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "garlicpowder",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "salt",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "blackpepper",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "sourdough",
+     "q": 12,
+     "n": ""
+    },
+    {
+     "k": "romaine",
+     "q": 1,
+     "n": "leaves"
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 sandwich",
+   "batch": {
+    "kcal": 2496,
+    "p": 234,
+    "c": 306,
+    "f": 32
+   },
+   "perServing": {
+    "kcal": 416,
+    "p": 39,
+    "c": 51,
+    "f": 5
+   },
+   "macrosA": {
+    "kcal": 832,
+    "p": 78,
+    "c": 102,
+    "f": 11
+   },
+   "macrosB": {
+    "kcal": 416,
+    "p": 39,
+    "c": 51,
+    "f": 5
+   },
+   "cost": 14.94,
+   "photo": "https://images.unsplash.com/photo-1540713434306-58505cf1b6fc?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1540713434306-58505cf1b6fc?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "40 Aprons",
+    "url": "https://40aprons.com/high-protein-chicken-salad/"
+   }
+  },
+  {
+   "id": "chicken-pesto-pasta-salad",
+   "title": "Chicken Pesto Pasta Salad",
+   "protein": "Chicken",
+   "cuisine": "Italian",
+   "active": 20,
+   "total": 30,
+   "freezer": false,
+   "equipment": [
+    "Stovetop"
+   ],
+   "tags": [
+    "Pasta",
+    "No reheat"
+   ],
+   "blurb": "A cold pasta salad that actually fills you up: protein pasta, chicken, pesto, tomatoes, mozzarella, and spinach. Tastes better on day two.",
+   "steps": [
+    "Cook the pasta, rinse it under cold water, and drain well.",
+    "Season the chicken with the Kinder's wood-fired garlic and sear in the oil until cooked through. Let it cool.",
+    "Whisk the pesto, yogurt, and lemon juice.",
+    "Toss everything together with the tomatoes, mozzarella, spinach, and parmesan."
+   ],
+   "storage": "Fridge 4 days.",
+   "reheat": "Eat cold. Give it a stir and a squeeze of lemon if it's dry.",
+   "meal": "lunch",
+   "heat": "mild",
+   "ingredients": [
+    {
+     "k": "breast",
+     "q": 1.5,
+     "n": "cut into bites"
+    },
+    {
+     "k": "woodfired",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "oil",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "pasta",
+     "q": 8,
+     "n": ""
+    },
+    {
+     "k": "pesto",
+     "q": 5,
+     "n": ""
+    },
+    {
+     "k": "yogurt",
+     "q": 0.25,
+     "n": ""
+    },
+    {
+     "k": "lemonjuice",
+     "q": 2,
+     "n": ""
+    },
+    {
+     "k": "cherrytom",
+     "q": 1,
+     "n": "halved"
+    },
+    {
+     "k": "mozz",
+     "q": 0.75,
+     "n": ""
+    },
+    {
+     "k": "spinach",
+     "q": 2,
+     "n": "chopped"
+    },
+    {
+     "k": "parm",
+     "q": 0.25,
+     "n": ""
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
+   "batch": {
+    "kcal": 2493,
+    "p": 238,
+    "c": 181,
+    "f": 94
+   },
+   "perServing": {
+    "kcal": 415,
+    "p": 40,
+    "c": 30,
+    "f": 16
+   },
+   "macrosA": {
+    "kcal": 831,
+    "p": 79,
+    "c": 60,
+    "f": 31
+   },
+   "macrosB": {
+    "kcal": 415,
+    "p": 40,
+    "c": 30,
+    "f": 16
+   },
+   "cost": 15.55,
+   "photo": "https://images.unsplash.com/photo-1597393353365-9d4366392fe9?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1597393353365-9d4366392fe9?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "Real Life Nutritionist",
+    "url": "https://reallifenutritionist.com/chicken-pesto-pasta-salad"
+   }
+  },
+  {
+   "id": "chicken-quesadillas",
+   "title": "Chicken & Black Bean Quesadillas",
+   "protein": "Chicken",
+   "cuisine": "Tex-Mex",
+   "active": 25,
+   "total": 30,
+   "freezer": true,
+   "equipment": [
+    "Stovetop",
+    "Air fryer"
+   ],
+   "tags": [
+    "Freezer stash",
+    "Quick"
+   ],
+   "blurb": "Fajita-spiced chicken, black beans, peppers, and two cheeses in a crispy tortilla. They freeze great, so make extra.",
+   "steps": [
+    "Cook the chicken with the fajita seasoning in the oil, then add the pepper and onion and cook 4 minutes. Stir in the beans.",
+    "Lightly cook the tortillas. On half of each, layer cheese, filling, and more cheese, then fold.",
+    "Crisp in a dry skillet 2–3 minutes a side, or air fry at 380°F for 6–8 minutes, flipping once.",
+    "Cut in halves. Salsa and yogurt go on the side."
+   ],
+   "storage": "Fridge 4 days; freezer 2 months.",
+   "reheat": "Air fry 5 min at 370°F (10 from frozen), or a skillet. The microwave makes them soft.",
+   "meal": "lunch",
+   "heat": "mild",
+   "ingredients": [
+    {
+     "k": "breast",
+     "q": 1.5,
+     "n": "diced small"
+    },
+    {
+     "k": "fajita",
+     "q": 1.5,
+     "n": ""
+    },
+    {
+     "k": "oil",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "pepper",
+     "q": 1,
+     "n": "diced"
+    },
+    {
+     "k": "onion",
+     "q": 0.5,
+     "n": "diced"
+    },
+    {
+     "k": "blackbeans",
+     "q": 1,
+     "n": "drained"
+    },
+    {
+     "k": "cheddar",
+     "q": 1,
+     "n": ""
+    },
+    {
+     "k": "mozz",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "tortilla_lg",
+     "q": 6,
+     "n": ""
+    },
+    {
+     "k": "salsa",
+     "q": 0.5,
+     "n": ""
+    },
+    {
+     "k": "yogurt",
+     "q": 0.5,
+     "n": ""
+    }
+   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 quesadilla",
+   "batch": {
+    "kcal": 3310,
+    "p": 264,
+    "c": 293,
+    "f": 117
+   },
+   "perServing": {
+    "kcal": 552,
+    "p": 44,
+    "c": 49,
+    "f": 20
+   },
+   "macrosA": {
+    "kcal": 1103,
+    "p": 88,
+    "c": 98,
+    "f": 39
+   },
+   "macrosB": {
+    "kcal": 552,
+    "p": 44,
+    "c": 49,
+    "f": 20
+   },
+   "cost": 15.62,
+   "photo": "https://images.unsplash.com/photo-1673990349292-ed2dfa7988c9?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1673990349292-ed2dfa7988c9?auto=format&fit=crop&w=240&q=70",
+   "source": {
+    "name": "Julie's Eats & Treats",
+    "url": "https://www.julieseatsandtreats.com/chicken-quesadilla"
    }
   },
   {
@@ -3389,12 +4511,6 @@
    "reheat": "Add a splash of milk and microwave 2 min, stirring halfway.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "beef93",
@@ -3467,29 +4583,37 @@
      "n": "chopped, for topping"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2606,
     "p": 238,
     "c": 202,
     "f": 99
    },
+   "perServing": {
+    "kcal": 434,
+    "p": 40,
+    "c": 34,
+    "f": 16
+   },
    "macrosA": {
-    "kcal": 847,
-    "p": 77,
-    "c": 66,
-    "f": 32
+    "kcal": 869,
+    "p": 79,
+    "c": 67,
+    "f": 33
    },
    "macrosB": {
-    "kcal": 456,
-    "p": 42,
-    "c": 35,
-    "f": 17
+    "kcal": 434,
+    "p": 40,
+    "c": 34,
+    "f": 16
    },
    "cost": 17.92,
+   "photo": "https://images.unsplash.com/photo-1667499989723-c4ab9549d63c?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1667499989723-c4ab9549d63c?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Practical Prep",
     "url": "https://practicalmealprep.substack.com/p/hamburger-helper"
@@ -3523,12 +4647,6 @@
    "reheat": "Microwave the beef and potatoes 1½–2 min, or air fry 5 min at 375°F to re-crisp. Then add the cold stuff and sauce.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "potatoes",
@@ -3621,29 +4739,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2815,
     "p": 243,
     "c": 208,
     "f": 110
    },
+   "perServing": {
+    "kcal": 469,
+    "p": 41,
+    "c": 35,
+    "f": 18
+   },
    "macrosA": {
-    "kcal": 915,
-    "p": 79,
-    "c": 68,
-    "f": 36
+    "kcal": 938,
+    "p": 81,
+    "c": 69,
+    "f": 37
    },
    "macrosB": {
-    "kcal": 493,
-    "p": 43,
-    "c": 36,
-    "f": 19
+    "kcal": 469,
+    "p": 41,
+    "c": 35,
+    "f": 18
    },
    "cost": 20.93,
+   "photo": "https://images.unsplash.com/photo-1590742309630-e9f9b66da3f7?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1590742309630-e9f9b66da3f7?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Oh Snap! Macros",
     "url": "https://ohsnapmacros.com/big-mac-bowls/"
@@ -3676,12 +4802,6 @@
    "reheat": "Microwave 2 min with a damp paper towel over the rice. Toppings go on after.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "rice",
@@ -3749,29 +4869,37 @@
      "n": "as sour cream"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3373,
     "p": 236,
     "c": 365,
     "f": 105
    },
+   "perServing": {
+    "kcal": 562,
+    "p": 39,
+    "c": 61,
+    "f": 17
+   },
    "macrosA": {
-    "kcal": 1096,
-    "p": 77,
-    "c": 119,
-    "f": 34
+    "kcal": 1124,
+    "p": 79,
+    "c": 122,
+    "f": 35
    },
    "macrosB": {
-    "kcal": 590,
-    "p": 41,
-    "c": 64,
-    "f": 18
+    "kcal": 562,
+    "p": 39,
+    "c": 61,
+    "f": 17
    },
    "cost": 19.64,
+   "photo": "https://images.unsplash.com/photo-1602881916963-5daf2d97c06e?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1602881916963-5daf2d97c06e?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Fed & Fit",
     "url": "https://fedandfit.com/ground-beef-burrito-bowl/"
@@ -3805,12 +4933,6 @@
    "reheat": "Microwave 2 min.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "rice",
@@ -3863,29 +4985,37 @@
      "n": "shredded or matchstick"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2632,
     "p": 202,
     "c": 294,
     "f": 68
    },
+   "perServing": {
+    "kcal": 439,
+    "p": 34,
+    "c": 49,
+    "f": 11
+   },
    "macrosA": {
-    "kcal": 856,
-    "p": 66,
-    "c": 95,
-    "f": 22
+    "kcal": 877,
+    "p": 67,
+    "c": 98,
+    "f": 23
    },
    "macrosB": {
-    "kcal": 461,
-    "p": 35,
-    "c": 51,
-    "f": 12
+    "kcal": 439,
+    "p": 34,
+    "c": 49,
+    "f": 11
    },
    "cost": 15.77,
+   "photo": "https://images.unsplash.com/photo-1783375175952-705a0600e05c?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1783375175952-705a0600e05c?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Real Food Dietitians",
     "url": "https://therealfooddietitians.com/korean-inspired-ground-beef-bowls/"
@@ -3920,12 +5050,6 @@
    "storage": "Fridge 5 days; freezer 3 months.",
    "reheat": "Microwave 2–2½ min, stirring halfway.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "beef93",
@@ -4013,29 +5137,37 @@
      "n": "topping"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3311,
     "p": 275,
     "c": 331,
     "f": 99
    },
+   "perServing": {
+    "kcal": 552,
+    "p": 46,
+    "c": 55,
+    "f": 17
+   },
    "macrosA": {
-    "kcal": 1076,
-    "p": 89,
-    "c": 108,
-    "f": 32
+    "kcal": 1104,
+    "p": 92,
+    "c": 110,
+    "f": 33
    },
    "macrosB": {
-    "kcal": 579,
-    "p": 48,
-    "c": 58,
+    "kcal": 552,
+    "p": 46,
+    "c": 55,
     "f": 17
    },
    "cost": 23.38,
+   "photo": "https://images.unsplash.com/photo-1666819632298-fe15dc7d4c34?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1666819632298-fe15dc7d4c34?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Culinary Ginger",
     "url": "https://culinaryginger.com/slow-cooker-beef-sweet-potato-chili/"
@@ -4069,12 +5201,6 @@
    "reheat": "Microwave at 70% power 1½–2 min so the steak stays pink. Chimichurri goes on after.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "potatoes",
@@ -4137,29 +5263,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2464,
     "p": 236,
     "c": 188,
     "f": 84
    },
+   "perServing": {
+    "kcal": 411,
+    "p": 39,
+    "c": 31,
+    "f": 14
+   },
    "macrosA": {
-    "kcal": 801,
-    "p": 77,
-    "c": 61,
-    "f": 27
+    "kcal": 821,
+    "p": 79,
+    "c": 63,
+    "f": 28
    },
    "macrosB": {
-    "kcal": 431,
-    "p": 41,
-    "c": 33,
-    "f": 15
+    "kcal": 411,
+    "p": 39,
+    "c": 31,
+    "f": 14
    },
    "cost": 24.34,
+   "photo": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Girl Carnivore",
     "url": "https://girlcarnivore.com/grilled-chimichurri-steak-potato-power-bowl/"
@@ -4181,10 +5315,6 @@
     "Stuffed peppers"
    ],
    "blurb": "All the cheesesteak (shaved steak, onions, mushrooms, melty provolone) baked into peppers with a little rice so it's a full meal.",
-   "portion": {
-    "A": "3 pepper halves",
-    "B": "2 pepper halves"
-   },
    "steps": [
     "Cook the rice. Heat the oven to 375°F and set the pepper halves cut-side up in a 9×13. Bake them empty for 10 minutes to soften.",
     "Season the steak with the steak seasoning and sear it in batches in a hot skillet with the oil, 1–2 minutes. Set aside.",
@@ -4197,8 +5327,6 @@
    "reheat": "Microwave covered, 2–2½ min.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
    "ingredients": [
     {
      "k": "rice",
@@ -4207,7 +5335,7 @@
     },
     {
      "k": "pepper",
-     "q": 5,
+     "q": 6,
      "n": "halved, seeds out"
     },
     {
@@ -4247,33 +5375,41 @@
     },
     {
      "k": "provolone",
-     "q": 10,
+     "q": 12,
      "n": ""
     }
    ],
-   "split": [
-    0.3,
-    0.2
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "2 stuffed pepper halves",
    "batch": {
-    "kcal": 3211,
-    "p": 251,
-    "c": 225,
-    "f": 150
+    "kcal": 3397,
+    "p": 263,
+    "c": 235,
+    "f": 162
+   },
+   "perServing": {
+    "kcal": 566,
+    "p": 44,
+    "c": 39,
+    "f": 27
    },
    "macrosA": {
-    "kcal": 963,
-    "p": 75,
-    "c": 67,
-    "f": 45
+    "kcal": 1132,
+    "p": 88,
+    "c": 78,
+    "f": 54
    },
    "macrosB": {
-    "kcal": 642,
-    "p": 50,
-    "c": 45,
-    "f": 30
+    "kcal": 566,
+    "p": 44,
+    "c": 39,
+    "f": 27
    },
-   "cost": 27.8,
+   "cost": 29.4,
+   "photo": "https://images.unsplash.com/photo-1673646960062-9aeb2188335f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1673646960062-9aeb2188335f?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "USA Rice",
     "url": "https://www.usarice.com/thinkrice/recipes/philly-cheesesteak-stuffed-peppers"
@@ -4309,12 +5445,6 @@
    "reheat": "Microwave 2 min. Add a splash of water if the pasta looks dry.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "beef93",
@@ -4382,29 +5512,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "4 meatballs with pasta and sauce",
    "batch": {
     "kcal": 3395,
     "p": 272,
     "c": 268,
     "f": 138
    },
+   "perServing": {
+    "kcal": 566,
+    "p": 45,
+    "c": 45,
+    "f": 23
+   },
    "macrosA": {
-    "kcal": 1104,
-    "p": 88,
-    "c": 87,
-    "f": 45
+    "kcal": 1132,
+    "p": 91,
+    "c": 89,
+    "f": 46
    },
    "macrosB": {
-    "kcal": 594,
-    "p": 48,
-    "c": 47,
-    "f": 24
+    "kcal": 566,
+    "p": 45,
+    "c": 45,
+    "f": 23
    },
    "cost": 22.51,
+   "photo": "https://images.unsplash.com/photo-1632808664408-f8ab196b0523?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1632808664408-f8ab196b0523?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Amy Casey Cooks",
     "url": "https://amycaseycooks.com/meatball-marinara-recipe/"
@@ -4441,12 +5579,6 @@
    "reheat": "Microwave 2–2½ min.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "sweetpot",
@@ -4519,29 +5651,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2932,
     "p": 226,
     "c": 307,
     "f": 89
    },
+   "perServing": {
+    "kcal": 489,
+    "p": 38,
+    "c": 51,
+    "f": 15
+   },
    "macrosA": {
-    "kcal": 953,
-    "p": 73,
-    "c": 100,
-    "f": 29
+    "kcal": 977,
+    "p": 75,
+    "c": 102,
+    "f": 30
    },
    "macrosB": {
-    "kcal": 513,
-    "p": 40,
-    "c": 54,
-    "f": 16
+    "kcal": 489,
+    "p": 38,
+    "c": 51,
+    "f": 15
    },
    "cost": 19.29,
+   "photo": "https://images.unsplash.com/photo-1696935257293-9ec4f03074a1?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1696935257293-9ec4f03074a1?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Canada Beef",
     "url": "https://canadabeef.ca/recipes/sweet-potato-shepherds-pie/"
@@ -4574,12 +5714,6 @@
    "reheat": "Microwave the rice and beef 1½–2 min. Salad and tzatziki stay cold.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "rice",
@@ -4672,29 +5806,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2914,
     "p": 241,
     "c": 275,
     "f": 89
    },
+   "perServing": {
+    "kcal": 486,
+    "p": 40,
+    "c": 46,
+    "f": 15
+   },
    "macrosA": {
-    "kcal": 947,
-    "p": 78,
-    "c": 89,
-    "f": 29
+    "kcal": 971,
+    "p": 80,
+    "c": 92,
+    "f": 30
    },
    "macrosB": {
-    "kcal": 510,
-    "p": 42,
-    "c": 48,
-    "f": 16
+    "kcal": 486,
+    "p": 40,
+    "c": 46,
+    "f": 15
    },
    "cost": 21.17,
+   "photo": "https://images.unsplash.com/photo-1673960616288-0cb46f318a68?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1673960616288-0cb46f318a68?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Pinch and Swirl",
     "url": "https://pinchandswirl.com/gyro-bowl/"
@@ -4729,12 +5871,6 @@
    "reheat": "Microwave 2 min. Keep the slaw separate.",
    "notes": "Want it milder? Use 1 chipotle and skip the adobo.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "chuck",
@@ -4807,29 +5943,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3274,
     "p": 250,
     "c": 300,
     "f": 117
    },
+   "perServing": {
+    "kcal": 546,
+    "p": 42,
+    "c": 50,
+    "f": 19
+   },
    "macrosA": {
-    "kcal": 1064,
-    "p": 81,
-    "c": 97,
-    "f": 38
+    "kcal": 1091,
+    "p": 83,
+    "c": 100,
+    "f": 39
    },
    "macrosB": {
-    "kcal": 573,
-    "p": 44,
-    "c": 52,
-    "f": 20
+    "kcal": 546,
+    "p": 42,
+    "c": 50,
+    "f": 19
    },
    "cost": 21.45,
+   "photo": "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Real Food Dietitians",
     "url": "https://therealfooddietitians.com/slow-cooker-beef-barbacoa/"
@@ -4852,10 +5996,6 @@
     "Burger night"
    ],
    "blurb": "Your burger night, perfected. Smashed lean patties, jammy onions, and cheddar griddled between sourdough, plus air-fried wedges. Prep ahead, griddle fresh.",
-   "portion": {
-    "A": "Double-patty melt + wedges",
-    "B": "Single-patty melt + wedges"
-   },
    "steps": [
     "Caramelize the onions in 1 tbsp butter over medium-low heat, 20–25 minutes, with a pinch of salt. Do this on prep day.",
     "Air fry the wedges, tossed with the oil and Dan-O's, at 400°F for 18–20 minutes.",
@@ -4869,8 +6009,6 @@
    "reheat": "Rebuild the melt and air fry 5–6 min at 360°F. It's way better than a microwave here.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
    "ingredients": [
     {
      "k": "onion",
@@ -4899,7 +6037,7 @@
     },
     {
      "k": "sourdough",
-     "q": 8,
+     "q": 12,
      "n": ""
     },
     {
@@ -4938,29 +6076,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.3,
-    0.2
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 patty melt + wedges",
    "batch": {
-    "kcal": 3726,
-    "p": 225,
-    "c": 348,
-    "f": 155
+    "kcal": 4212,
+    "p": 243,
+    "c": 441,
+    "f": 158
+   },
+   "perServing": {
+    "kcal": 702,
+    "p": 41,
+    "c": 74,
+    "f": 26
    },
    "macrosA": {
-    "kcal": 1118,
-    "p": 68,
-    "c": 104,
-    "f": 46
+    "kcal": 1404,
+    "p": 81,
+    "c": 147,
+    "f": 53
    },
    "macrosB": {
-    "kcal": 745,
-    "p": 45,
-    "c": 70,
-    "f": 31
+    "kcal": 702,
+    "p": 41,
+    "c": 74,
+    "f": 26
    },
-   "cost": 17.79,
+   "cost": 19.39,
+   "photo": "https://images.unsplash.com/photo-1655279563187-a4010cc494f5?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1655279563187-a4010cc494f5?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Tastes Better From Scratch",
     "url": "https://tastesbetterfromscratch.com/patty-melt/"
@@ -4993,12 +6139,6 @@
    "storage": "Fridge 4 days; freezer 2 months.",
    "reheat": "Microwave 2 min.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "turkey",
@@ -5081,29 +6221,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2913,
     "p": 223,
     "c": 275,
     "f": 106
    },
+   "perServing": {
+    "kcal": 485,
+    "p": 37,
+    "c": 46,
+    "f": 18
+   },
    "macrosA": {
-    "kcal": 947,
-    "p": 73,
-    "c": 89,
-    "f": 34
+    "kcal": 971,
+    "p": 74,
+    "c": 92,
+    "f": 35
    },
    "macrosB": {
-    "kcal": 510,
-    "p": 39,
-    "c": 48,
-    "f": 19
+    "kcal": 485,
+    "p": 37,
+    "c": 46,
+    "f": 18
    },
    "cost": 18.3,
+   "photo": "https://images.unsplash.com/photo-1716392976013-66d90cac4411?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1716392976013-66d90cac4411?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Natural Nurturer",
     "url": "https://thenaturalnurturer.com/taco-ground-turkey-sweet-potato-skillet"
@@ -5126,23 +6274,17 @@
    ],
    "blurb": "Juicy turkey patties with feta and spinach mixed right in, so they never dry out, over rice with tzatziki and tomatoes.",
    "steps": [
-    "Gently mix the turkey, feta, spinach, grated onion, oregano, garlic powder, salt, and pepper. Form 8 patties.",
+    "Gently mix the turkey, feta, spinach, grated onion, oregano, garlic powder, salt, and pepper. Form 12 small patties.",
     "Sear in the oil over medium-high, 4–5 minutes a side, until they hit 165°F.",
     "Cook the rice.",
     "Quick tzatziki: squeeze the grated cucumber dry and mix with the yogurt, lemon juice, dill, and a pinch of salt.",
-    "Bowls: rice, 2 patties, sliced cucumber, tomatoes. Tzatziki on the side."
+    "Bowls: rice, patties, sliced cucumber, tomatoes. Tzatziki on the side."
    ],
    "prep": "Mix and form the patties (separate them with parchment); cook the rice; make the tzatziki.",
    "storage": "Fridge 4 days; cooked patties freeze 2 months.",
    "reheat": "Microwave 1½–2 min.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "turkey",
@@ -5220,29 +6362,37 @@
      "n": "halved"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "2 small patties over rice",
    "batch": {
     "kcal": 2904,
     "p": 219,
     "c": 266,
     "f": 105
    },
+   "perServing": {
+    "kcal": 484,
+    "p": 36,
+    "c": 44,
+    "f": 17
+   },
    "macrosA": {
-    "kcal": 944,
-    "p": 71,
-    "c": 86,
-    "f": 34
+    "kcal": 968,
+    "p": 73,
+    "c": 89,
+    "f": 35
    },
    "macrosB": {
-    "kcal": 508,
-    "p": 38,
-    "c": 47,
-    "f": 18
+    "kcal": 484,
+    "p": 36,
+    "c": 44,
+    "f": 17
    },
    "cost": 19.08,
+   "photo": "https://images.unsplash.com/photo-1543352632-5a4b24e4d2a6?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1543352632-5a4b24e4d2a6?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Eat the Gains",
     "url": "https://eatthegains.com/greek-turkey-burger/"
@@ -5277,12 +6427,6 @@
    "reheat": "Microwave 2 min with a splash of water.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "oil",
@@ -5360,29 +6504,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3015,
     "p": 243,
     "c": 305,
     "f": 105
    },
+   "perServing": {
+    "kcal": 502,
+    "p": 41,
+    "c": 51,
+    "f": 17
+   },
    "macrosA": {
-    "kcal": 980,
-    "p": 79,
-    "c": 99,
-    "f": 34
+    "kcal": 1005,
+    "p": 81,
+    "c": 102,
+    "f": 35
    },
    "macrosB": {
-    "kcal": 528,
-    "p": 43,
-    "c": 53,
-    "f": 18
+    "kcal": 502,
+    "p": 41,
+    "c": 51,
+    "f": 17
    },
    "cost": 17.71,
+   "photo": "https://images.unsplash.com/photo-1785396347369-b5e70e3f3af3?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1785396347369-b5e70e3f3af3?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Sunkissed Kitchen",
     "url": "https://sunkissedkitchen.com/turkey-bolognese/"
@@ -5416,12 +6568,6 @@
    "storage": "Fridge 5 days; freezer 3 months.",
    "reheat": "Microwave 2–2½ min.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "turkey",
@@ -5514,29 +6660,37 @@
      "n": "topping"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3727,
     "p": 284,
     "c": 355,
     "f": 131
    },
+   "perServing": {
+    "kcal": 621,
+    "p": 47,
+    "c": 59,
+    "f": 22
+   },
    "macrosA": {
-    "kcal": 1211,
-    "p": 92,
-    "c": 115,
-    "f": 43
+    "kcal": 1242,
+    "p": 95,
+    "c": 118,
+    "f": 44
    },
    "macrosB": {
-    "kcal": 652,
-    "p": 50,
-    "c": 62,
-    "f": 23
+    "kcal": 621,
+    "p": 47,
+    "c": 59,
+    "f": 22
    },
    "cost": 21.22,
+   "photo": "https://images.unsplash.com/photo-1591386767153-987783380885?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1591386767153-987783380885?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Cookful",
     "url": "https://thecookful.com/turkey-chili"
@@ -5558,10 +6712,6 @@
     "Stuffed peppers"
    ],
    "blurb": "Classic stuffed peppers: Italian-seasoned turkey, rice, and tomatoes under a melty mozzarella lid.",
-   "portion": {
-    "A": "3 pepper halves",
-    "B": "2 pepper halves"
-   },
    "steps": [
     "Cook the rice. Heat the oven to 375°F and pre-bake the pepper halves 10 minutes.",
     "Brown the turkey with the onion, garlic, Italian seasoning, and salt.",
@@ -5573,8 +6723,6 @@
    "reheat": "Microwave covered 2–2½ min.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
    "ingredients": [
     {
      "k": "rice",
@@ -5583,7 +6731,7 @@
     },
     {
      "k": "pepper",
-     "q": 5,
+     "q": 6,
      "n": "halved"
     },
     {
@@ -5632,29 +6780,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.3,
-    0.2
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "2 stuffed pepper halves",
    "batch": {
-    "kcal": 2532,
-    "p": 194,
-    "c": 241,
+    "kcal": 2571,
+    "p": 195,
+    "c": 250,
     "f": 89
    },
+   "perServing": {
+    "kcal": 429,
+    "p": 33,
+    "c": 42,
+    "f": 15
+   },
    "macrosA": {
-    "kcal": 760,
-    "p": 58,
-    "c": 72,
-    "f": 27
+    "kcal": 857,
+    "p": 65,
+    "c": 83,
+    "f": 30
    },
    "macrosB": {
-    "kcal": 506,
-    "p": 39,
-    "c": 48,
-    "f": 18
+    "kcal": 429,
+    "p": 33,
+    "c": 42,
+    "f": 15
    },
-   "cost": 17.71,
+   "cost": 18.71,
+   "photo": "https://images.unsplash.com/photo-1689012117967-433df843aa7a?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1689012117967-433df843aa7a?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "By Kelsey Smith",
     "url": "https://bykelseysmith.com/ground-turkey-stuffed-peppers-with-rice/"
@@ -5687,12 +6843,6 @@
    "storage": "Fridge 4 days.",
    "reheat": "Splash of water or broth and microwave 2 min.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "turkey",
@@ -5770,29 +6920,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3114,
     "p": 239,
     "c": 268,
     "f": 129
    },
+   "perServing": {
+    "kcal": 519,
+    "p": 40,
+    "c": 45,
+    "f": 22
+   },
    "macrosA": {
-    "kcal": 1012,
-    "p": 78,
-    "c": 87,
-    "f": 42
+    "kcal": 1038,
+    "p": 80,
+    "c": 89,
+    "f": 43
    },
    "macrosB": {
-    "kcal": 545,
-    "p": 42,
-    "c": 47,
-    "f": 23
+    "kcal": 519,
+    "p": 40,
+    "c": 45,
+    "f": 22
    },
    "cost": 20.6,
+   "photo": "https://images.unsplash.com/photo-1579619002916-88cd4c81a70c?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1579619002916-88cd4c81a70c?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Zen and Spice",
     "url": "https://zenandspice.com/turkey-taco-pasta/"
@@ -5827,12 +6985,6 @@
    "reheat": "Microwave the filling 1½ min; toast the bread fresh; air fry the fries 4 min.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "turkey",
@@ -5920,29 +7072,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3572,
     "p": 230,
     "c": 408,
     "f": 115
    },
+   "perServing": {
+    "kcal": 595,
+    "p": 38,
+    "c": 68,
+    "f": 19
+   },
    "macrosA": {
-    "kcal": 1161,
-    "p": 75,
-    "c": 133,
-    "f": 37
+    "kcal": 1191,
+    "p": 77,
+    "c": 136,
+    "f": 38
    },
    "macrosB": {
-    "kcal": 625,
-    "p": 40,
-    "c": 71,
-    "f": 20
+    "kcal": 595,
+    "p": 38,
+    "c": 68,
+    "f": 19
    },
    "cost": 18.78,
+   "photo": "https://images.unsplash.com/photo-1709403736483-25974cac365d?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1709403736483-25974cac365d?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "iFoodReal",
     "url": "https://ifoodreal.com/turkey-sloppy-joes/"
@@ -5976,12 +7136,6 @@
    "notes": "Breasts work too. Pull them at 160°F so they stay juicy.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "thigh",
@@ -6059,29 +7213,37 @@
      "n": "sliced"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2678,
     "p": 236,
     "c": 268,
     "f": 68
    },
+   "perServing": {
+    "kcal": 446,
+    "p": 39,
+    "c": 45,
+    "f": 11
+   },
    "macrosA": {
-    "kcal": 870,
-    "p": 77,
-    "c": 87,
-    "f": 22
+    "kcal": 893,
+    "p": 79,
+    "c": 89,
+    "f": 23
    },
    "macrosB": {
-    "kcal": 469,
-    "p": 41,
-    "c": 47,
-    "f": 12
+    "kcal": 446,
+    "p": 39,
+    "c": 45,
+    "f": 11
    },
    "cost": 14.7,
+   "photo": "https://images.unsplash.com/photo-1682566509568-ded8649b26bb?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1682566509568-ded8649b26bb?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Girl on Bloor",
     "url": "https://thegirlonbloor.com/chicken-shawarma-meal-prep-bowls/"
@@ -6116,12 +7278,6 @@
    "storage": "Fridge 4 days.",
    "reheat": "Microwave 2 min, or air fry 5 min at 375°F to re-crisp.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "breast",
@@ -6184,29 +7340,37 @@
      "n": "sliced"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2430,
     "p": 260,
     "c": 187,
     "f": 67
    },
+   "perServing": {
+    "kcal": 405,
+    "p": 43,
+    "c": 31,
+    "f": 11
+   },
    "macrosA": {
-    "kcal": 790,
-    "p": 85,
-    "c": 61,
+    "kcal": 810,
+    "p": 87,
+    "c": 62,
     "f": 22
    },
    "macrosB": {
-    "kcal": 425,
-    "p": 46,
-    "c": 33,
-    "f": 12
+    "kcal": 405,
+    "p": 43,
+    "c": 31,
+    "f": 11
    },
    "cost": 14.03,
+   "photo": "https://images.unsplash.com/photo-1571162437205-8889ff2fee26?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1571162437205-8889ff2fee26?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Almond Eater",
     "url": "https://thealmondeater.com/buffalo-chicken-bowls/"
@@ -6240,12 +7404,6 @@
    "reheat": "Microwave 2 min.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "breast",
@@ -6303,29 +7461,37 @@
      "n": "slice fresh"
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3492,
     "p": 299,
     "c": 362,
     "f": 89
    },
+   "perServing": {
+    "kcal": 582,
+    "p": 50,
+    "c": 60,
+    "f": 15
+   },
    "macrosA": {
-    "kcal": 1135,
-    "p": 97,
-    "c": 118,
-    "f": 29
+    "kcal": 1164,
+    "p": 100,
+    "c": 121,
+    "f": 30
    },
    "macrosB": {
-    "kcal": 611,
-    "p": 52,
-    "c": 63,
-    "f": 16
+    "kcal": 582,
+    "p": 50,
+    "c": 60,
+    "f": 15
    },
    "cost": 16.44,
+   "photo": "https://images.unsplash.com/photo-1666025954339-97a97468de17?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1666025954339-97a97468de17?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Cooking with Carlee",
     "url": "https://cookingwithcarlee.com/slow-cooker-salsa-chicken-for-burrito/"
@@ -6359,12 +7525,6 @@
    "reheat": "Splash of milk and microwave 2 min, stirring halfway.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "breast",
@@ -6432,29 +7592,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2836,
     "p": 275,
     "c": 244,
     "f": 90
    },
+   "perServing": {
+    "kcal": 473,
+    "p": 46,
+    "c": 41,
+    "f": 15
+   },
    "macrosA": {
-    "kcal": 922,
-    "p": 89,
-    "c": 79,
-    "f": 29
+    "kcal": 945,
+    "p": 92,
+    "c": 81,
+    "f": 30
    },
    "macrosB": {
-    "kcal": 496,
-    "p": 48,
-    "c": 43,
-    "f": 16
+    "kcal": 473,
+    "p": 46,
+    "c": 41,
+    "f": 15
    },
    "cost": 16.79,
+   "photo": "https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Workweek Lunch",
     "url": "https://workweeklunch.com/tuscan-chicken-pasta/"
@@ -6487,12 +7655,6 @@
    "reheat": "Microwave 2 min. Slaw stays cold.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "thigh",
@@ -6560,29 +7722,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2558,
     "p": 215,
     "c": 299,
     "f": 55
    },
+   "perServing": {
+    "kcal": 426,
+    "p": 36,
+    "c": 50,
+    "f": 9
+   },
    "macrosA": {
-    "kcal": 831,
-    "p": 70,
-    "c": 97,
+    "kcal": 853,
+    "p": 72,
+    "c": 100,
     "f": 18
    },
    "macrosB": {
-    "kcal": 448,
-    "p": 38,
-    "c": 52,
-    "f": 10
+    "kcal": 426,
+    "p": 36,
+    "c": 50,
+    "f": 9
    },
    "cost": 12.98,
+   "photo": "https://images.unsplash.com/photo-1592011432621-f7f576f44484?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1592011432621-f7f576f44484?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Whole Lotta Yum",
     "url": "https://wholelottayum.com/bbq-chicken-sweet-potato-bowl/"
@@ -6616,12 +7786,6 @@
    "reheat": "Microwave 1½ min, or eat cold.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "breast",
@@ -6679,29 +7843,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2841,
     "p": 274,
     "c": 222,
     "f": 99
    },
+   "perServing": {
+    "kcal": 474,
+    "p": 46,
+    "c": 37,
+    "f": 17
+   },
    "macrosA": {
-    "kcal": 923,
-    "p": 89,
-    "c": 72,
-    "f": 32
+    "kcal": 947,
+    "p": 91,
+    "c": 74,
+    "f": 33
    },
    "macrosB": {
-    "kcal": 497,
-    "p": 48,
-    "c": 39,
+    "kcal": 474,
+    "p": 46,
+    "c": 37,
     "f": 17
    },
    "cost": 17.58,
+   "photo": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Joy to the Food",
     "url": "https://joytothefood.com/high-protein-pesto-pasta-with-chicken/"
@@ -6736,12 +7908,6 @@
    "storage": "Fridge 4 days; freezer 3 months.",
    "reheat": "Microwave 2 min.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "thigh",
@@ -6824,29 +7990,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2809,
     "p": 243,
     "c": 310,
     "f": 62
    },
+   "perServing": {
+    "kcal": 468,
+    "p": 41,
+    "c": 52,
+    "f": 10
+   },
    "macrosA": {
-    "kcal": 913,
-    "p": 79,
-    "c": 101,
-    "f": 20
+    "kcal": 936,
+    "p": 81,
+    "c": 103,
+    "f": 21
    },
    "macrosB": {
-    "kcal": 492,
-    "p": 43,
-    "c": 54,
-    "f": 11
+    "kcal": 468,
+    "p": 41,
+    "c": 52,
+    "f": 10
    },
    "cost": 14.07,
+   "photo": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Damn Delicious",
     "url": "https://damndelicious.net/2017/08/08/chicken-tikka-masala-meal-prep/"
@@ -6879,12 +8053,6 @@
    "notes": "Also great with chicken breasts. Use them to burn through freezer stock.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "thigh",
@@ -6947,29 +8115,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2384,
     "p": 207,
     "c": 238,
     "f": 66
    },
+   "perServing": {
+    "kcal": 397,
+    "p": 34,
+    "c": 40,
+    "f": 11
+   },
    "macrosA": {
-    "kcal": 775,
-    "p": 67,
-    "c": 77,
+    "kcal": 795,
+    "p": 69,
+    "c": 79,
     "f": 22
    },
    "macrosB": {
-    "kcal": 417,
-    "p": 36,
-    "c": 42,
-    "f": 12
+    "kcal": 397,
+    "p": 34,
+    "c": 40,
+    "f": 11
    },
    "cost": 12.2,
+   "photo": "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Olivia Adriance",
     "url": "https://oliviaadriance.com/honey-garlic-chicken-thighs/"
@@ -7002,12 +8178,6 @@
    "storage": "Fridge 4 days; freezer 2 months.",
    "reheat": "Microwave 2 min with a splash of water.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "breast",
@@ -7085,29 +8255,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 3463,
     "p": 284,
     "c": 337,
     "f": 104
    },
+   "perServing": {
+    "kcal": 577,
+    "p": 47,
+    "c": 56,
+    "f": 17
+   },
    "macrosA": {
-    "kcal": 1125,
-    "p": 92,
-    "c": 110,
-    "f": 34
+    "kcal": 1154,
+    "p": 95,
+    "c": 112,
+    "f": 35
    },
    "macrosB": {
-    "kcal": 606,
-    "p": 50,
-    "c": 59,
-    "f": 18
+    "kcal": 577,
+    "p": 47,
+    "c": 56,
+    "f": 17
    },
    "cost": 18.14,
+   "photo": "https://images.unsplash.com/photo-1673925885673-15f8e48d4e7e?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1673925885673-15f8e48d4e7e?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "Simply Scratch",
     "url": "https://www.simplyscratch.com/easy-enchilada-chicken-and-rice-skillet/"
@@ -7143,12 +8321,6 @@
    "notes": "Want to use freezer breasts? Pulse 2 lb cubed breast in a food processor. Add 1 tbsp olive oil, since breast is leaner.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "gchicken",
@@ -7206,29 +8378,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "4 meatballs with pasta",
    "batch": {
     "kcal": 3343,
     "p": 264,
     "c": 223,
     "f": 156
    },
+   "perServing": {
+    "kcal": 557,
+    "p": 44,
+    "c": 37,
+    "f": 26
+   },
    "macrosA": {
-    "kcal": 1087,
-    "p": 86,
-    "c": 73,
-    "f": 51
+    "kcal": 1114,
+    "p": 88,
+    "c": 74,
+    "f": 52
    },
    "macrosB": {
-    "kcal": 585,
-    "p": 46,
-    "c": 39,
-    "f": 27
+    "kcal": 557,
+    "p": 44,
+    "c": 37,
+    "f": 26
    },
    "cost": 21.64,
+   "photo": "https://images.unsplash.com/photo-1635264685671-739e75e73e0f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1635264685671-739e75e73e0f?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Balanced Nutritionist",
     "url": "https://thebalancednutritionist.com/chicken-parmesan-meatballs/"
@@ -7261,12 +8441,6 @@
    "reheat": "Microwave 2 min.",
    "meal": "dinner",
    "heat": "mild",
-   "nA": 2,
-   "nB": 2,
-   "portion": {
-    "A": "About ⅓ of the batch",
-    "B": "About ⅙ of the batch"
-   },
    "ingredients": [
     {
      "k": "breast",
@@ -7344,29 +8518,37 @@
      "n": ""
     }
    ],
-   "split": [
-    0.325,
-    0.175
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "⅙ of the batch",
    "batch": {
     "kcal": 2678,
     "p": 266,
     "c": 209,
     "f": 83
    },
+   "perServing": {
+    "kcal": 446,
+    "p": 44,
+    "c": 35,
+    "f": 14
+   },
    "macrosA": {
-    "kcal": 870,
-    "p": 86,
-    "c": 68,
-    "f": 27
+    "kcal": 893,
+    "p": 89,
+    "c": 70,
+    "f": 28
    },
    "macrosB": {
-    "kcal": 469,
-    "p": 47,
-    "c": 37,
-    "f": 15
+    "kcal": 446,
+    "p": 44,
+    "c": 35,
+    "f": 14
    },
    "cost": 16.66,
+   "photo": "https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Girl on Bloor",
     "url": "https://thegirlonbloor.com/sheet-pan-greek-chicken"
@@ -7388,10 +8570,6 @@
     "Sandwich"
    ],
    "blurb": "Your chicken sandwich night, leveled up. Yogurt-and-pickle-brined breast with a parmesan-panko crust, air fried crunchy, plus hot-honey sauce and sweet potato fries.",
-   "portion": {
-    "A": "Big cutlet sandwich + fries",
-    "B": "Smaller cutlet sandwich + fries"
-   },
    "steps": [
     "Brine: coat the cutlets in ½ cup yogurt, the pickle juice, 1 tbsp hot sauce, and the kick'n chicken. Give it 30 minutes to overnight.",
     "Mix the panko, parmesan, and paprika and press firmly onto the chicken. Mist with oil.",
@@ -7403,13 +8581,11 @@
    "storage": "Fridge 3 days, components separate.",
    "reheat": "Air fry the cutlet 5 min at 370°F. The microwave makes it soggy. Toast the bread fresh.",
    "meal": "dinner",
-   "nA": 2,
-   "nB": 2,
    "ingredients": [
     {
      "k": "breast",
      "q": 1.75,
-     "n": "sliced into 4 cutlets"
+     "n": "sliced into 6 cutlets"
     },
     {
      "k": "yogurt",
@@ -7458,7 +8634,7 @@
     },
     {
      "k": "sourdough",
-     "q": 8,
+     "q": 12,
      "n": ""
     },
     {
@@ -7477,29 +8653,37 @@
      "n": "cut into fries"
     }
    ],
-   "split": [
-    0.3,
-    0.2
-   ],
+   "servings": 6,
+   "sA": 2,
+   "sB": 1,
+   "servingLabel": "1 sandwich + fries",
    "batch": {
-    "kcal": 3332,
-    "p": 269,
-    "c": 430,
-    "f": 54
+    "kcal": 3818,
+    "p": 287,
+    "c": 524,
+    "f": 57
+   },
+   "perServing": {
+    "kcal": 636,
+    "p": 48,
+    "c": 87,
+    "f": 10
    },
    "macrosA": {
-    "kcal": 1000,
-    "p": 81,
-    "c": 129,
-    "f": 16
+    "kcal": 1273,
+    "p": 96,
+    "c": 175,
+    "f": 19
    },
    "macrosB": {
-    "kcal": 666,
-    "p": 54,
-    "c": 86,
-    "f": 11
+    "kcal": 636,
+    "p": 48,
+    "c": 87,
+    "f": 10
    },
-   "cost": 17.55,
+   "cost": 19.15,
+   "photo": "https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&fit=crop&w=900&q=70",
+   "thumb": "https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&fit=crop&w=240&q=70",
    "source": {
     "name": "The Whole Cook",
     "url": "https://thewholecook.com/yogurt-marinated-air-fryer-chicken/"

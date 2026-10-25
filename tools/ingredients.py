@@ -55,6 +55,7 @@ DB = {
     "panko": I("panko breadcrumbs", "cup", 60, 390, 13, 76, 3, 0.80, "Pantry", "have"),
     "potatoes": I("Yukon gold potatoes", "lb", 454, 77, 2, 17, 0.1, 1.20, "Produce"),
     "sweetpot": I("sweet potatoes", "lb", 454, 86, 1.6, 20, 0.1, 1.30, "Produce"),
+    "tortilla_lg": I("uncooked flour tortillas, burrito size (e.g., TortillaLand)", "each", 64, 312, 8, 50, 9, 0.55, "Dairy & Eggs", None, "refrigerated, near the cheese"),
     "sourdough": I("sourdough bread", "slice", 45, 270, 10, 52, 2, 0.40, "Bakery", None, "1 loaf ≈ 16 slices"),
     "sdmuffin": I("sourdough English muffins", "each", 57, 235, 8, 46, 1.5, 0.65, "Bakery", None, "6-pack"),
     "tortilla": I("uncooked flour tortillas, 8-inch (e.g., TortillaLand)", "each", 45, 312, 8, 50, 9, 0.40, "Dairy & Eggs", None, "refrigerated, near the cheese"),

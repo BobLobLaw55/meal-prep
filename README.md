@@ -1,6 +1,6 @@
 # Prep Counter
 
-High-protein meal prep for two: 43 recipes (12 breakfast batches, 31 dinners) built around ground beef, chicken, and turkey, with a weekly planner, Sunday/Wednesday shopping lists, a pantry and freezer tracker, ratings, and sharing.
+High-protein meal prep for two: 52 recipes (12 breakfasts, 9 lunches, 31 dinners) built around ground beef, chicken, and turkey, with a weekly planner, Sunday/Wednesday shopping lists, a pantry and freezer tracker, ratings, and sharing.
 
 Live site: https://bobloblaw55.github.io/meal-prep/
 
@@ -14,7 +14,7 @@ Live site: https://bobloblaw55.github.io/meal-prep/
 
 ## Adding or editing recipes
 
-Recipes live in `tools/recipes_dinner.py` and `tools/recipes_breakfast.py`, and ingredients (with macros and prices) in `tools/ingredients.py`. After editing, run:
+Recipes live in `tools/recipes_breakfast.py`, `tools/recipes_lunch.py`, and `tools/recipes_dinner.py`; serving sizes and photos in `tools/servings.py`, and ingredients (with macros and prices) in `tools/ingredients.py`. After editing, run:
 
 ```
 python3 tools/build.py

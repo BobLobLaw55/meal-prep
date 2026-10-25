@@ -3,13 +3,15 @@ import json, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from ingredients import DB, STOCK
 from recipes_breakfast import B
+from recipes_lunch import L
 from recipes_dinner import D
+from servings import DEFAULTS, LABELS, photo_url
 
 out_dir = os.path.join(os.path.dirname(__file__), "..", "data")
 os.makedirs(out_dir, exist_ok=True)
 
 recipes, errors, ids = [], [], set()
-for r in B + D:
+for r in B + L + D:
     if r["id"] in ids: errors.append(f"dup id {r['id']}")
     ids.add(r["id"])
     tot = dict(kcal=0, p=0, c=0, f=0); cost = 0; ings = []
@@ -21,23 +23,28 @@ for r in B + D:
         for m in tot: tot[m] += grams * d[m] / 100
         cost += qty * d["price"]
         ings.append({"k": key, "q": qty, "n": note})
-    a, b = r["split"]
-    share_total = r["nA"] * a + r["nB"] * b
-    if abs(share_total - 1) > 0.03: errors.append(f"{r['id']}: shares sum to {share_total:.2f}")
-    per = lambda s: {m: round(v * s) for m, v in tot.items()}
-    rec = {k: v for k, v in r.items() if k not in ("ingredients", "split", "source")}
-    rec.update(ingredients=ings, split=[a, b], batch={m: round(v) for m, v in tot.items()},
-               macrosA=per(a), macrosB=per(b), cost=round(cost, 2),
+    sv = dict(DEFAULTS[r["meal"]])
+    sv["label"] = LABELS.get(r["id"], sv["label"])
+    n = sv["servings"]
+    per = {m: round(v / n) for m, v in tot.items()}
+    rec = {k: v for k, v in r.items() if k not in ("ingredients", "source")}
+    photo = photo_url(r["id"])
+    if not photo: errors.append(f"{r['id']}: no photo")
+    rec.update(ingredients=ings, servings=n, sA=sv["sA"], sB=sv["sB"], servingLabel=sv["label"],
+               batch={m: round(v) for m, v in tot.items()}, perServing=per,
+               macrosA={m: round(v / n * sv["sA"]) for m, v in tot.items()},
+               macrosB={m: round(v / n * sv["sB"]) for m, v in tot.items()},
+               cost=round(cost, 2), photo=photo, thumb=photo_url(r["id"], 240),
                source={"name": r["source"][0], "url": r["source"][1]})
     recipes.append(rec)
 
 if errors:
     print("\n".join(errors)); sys.exit(1)
 
-json.dump({"version": 1, "ingredients": DB, "stock": STOCK, "recipes": recipes},
+json.dump({"version": 2, "ingredients": DB, "stock": STOCK, "recipes": recipes},
           open(os.path.join(out_dir, "recipes.json"), "w"), ensure_ascii=False, indent=1)
 
 print(f"{len(recipes)} recipes")
 for r in recipes:
-    A, Bm = r["macrosA"], r["macrosB"]
-    print(f"{r['meal'][:5]:6}{r['id'][:34]:35} A {A['p']:>3}g P {A['kcal']:>4} kcal | B {Bm['p']:>3}g P {Bm['kcal']:>4} kcal | ${r['cost']:.0f}")
+    s, A = r["perServing"], r["macrosA"]
+    print(f"{r['meal'][:5]:6}{r['id'][:34]:35} serving {s['p']:>3}g P {s['kcal']:>4} cal | A {A['p']:>3}g | ${r['cost']:.0f}")

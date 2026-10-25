@@ -1,0 +1,145 @@
+"""Quick lunches. Each batch = 2 lunches for both of you (6 servings: A eats 2 per lunch, B eats 1).
+Used on days without a leftover dinner (the day after a night off, weekends), or anytime.
+"""
+
+L = []
+
+def add(**r):
+    r.setdefault("meal", "lunch")
+    r.setdefault("heat", "mild")
+    L.append(r)
+
+add(id="chicken-caesar-wraps", title="Chicken Caesar Wraps",
+    protein="Chicken", cuisine="American", active=20, total=30, freezer=False,
+    equipment=["Stovetop"], tags=["Wrap", "Quick"],
+    blurb="Seared garlic-parm chicken, crisp romaine, and a Greek-yogurt Caesar dressing that's lighter than the bottle (and has more protein), rolled up in fresh tortillas.",
+    ingredients=[("breast", 1.5, "pounded even"), ("garlicparm", 2), ("oil", 1), ("yogurt", 0.75), ("parm", 0.5),
+                 ("lemonjuice", 2), ("dijon", 1), ("worcester", 1), ("garlic", 0.5), ("blackpepper", 0.5),
+                 ("romaine", 2, "chopped and dried well"), ("tortilla_lg", 6)],
+    steps=["Season the chicken with the garlic parmesan and sear in the oil, 5–6 minutes a side, until 160°F. Rest 5 minutes and slice thin.",
+           "Dressing: whisk the yogurt, half the parmesan, the lemon juice, Dijon, Worcestershire, garlic, and pepper. Thin with water to drizzle.",
+           "Cook the tortillas per the package and let them cool.",
+           "Toss the romaine with half the dressing. Fill each tortilla with lettuce, chicken, the rest of the parmesan, and a drizzle of dressing, then roll tight and wrap in foil.",
+           "Or keep the parts separate and roll fresh. It takes two minutes and keeps the lettuce crisp."],
+    storage="Fridge 2 days rolled, or 4 days with the parts separate.",
+    reheat="Eat cold.",
+    source=("The Wooden Skillet", "https://thewoodenskillet.com/chicken-caesar-wrap/"))
+
+add(id="buffalo-chicken-wraps", title="Buffalo Chicken Ranch Wraps",
+    protein="Chicken", cuisine="American", active=20, total=30, freezer=False, heat="medium",
+    equipment=["Stovetop"], tags=["Wrap", "Quick"],
+    blurb="Spicy buffalo chicken, cool yogurt ranch, cheddar, and crunchy celery. All the wing flavor, packed for lunch.",
+    ingredients=[("breast", 1.5, "cut into strips"), ("kickinchicken", 1), ("oil", 1), ("hotsauce", 4),
+                 ("yogurt", 0.5), ("ranchseason", 1), ("cheddar", 0.75), ("romaine", 1, "shredded"),
+                 ("celery", 2, "thinly sliced"), ("tortilla_lg", 6)],
+    steps=["Season the chicken strips with the kick'n chicken and sear in the oil until cooked through, 6–8 minutes. Toss with the hot sauce while hot.",
+           "Ranch: stir the yogurt with the ranch seasoning and a splash of water.",
+           "Cook the tortillas and let them cool.",
+           "Layer ranch, lettuce, celery, chicken, and cheddar, then roll tight. Or pack the parts separately."],
+    storage="Fridge 2 days rolled, or 4 days with the parts separate.",
+    reheat="Eat cold, or warm the chicken 45 sec before rolling.",
+    source=("Fed & Fit", "https://fedandfit.com/buffalo-chicken-wrap/"))
+
+add(id="sheet-pan-fajita-bowls", title="Sheet-Pan Chicken Fajita Bowls",
+    protein="Chicken", cuisine="Mexican", active=15, total=35, freezer=True,
+    equipment=["Oven"], tags=["Bowl", "Sheet pan"],
+    blurb="Everything roasts on one pan (fajita chicken, peppers, onions) and goes over lime rice and black beans. Barely any dishes.",
+    ingredients=[("breast", 1.5, "sliced into strips"), ("fajita", 2), ("oil", 2), ("pepper", 3, "sliced"),
+                 ("onion", 1, "sliced"), ("rice", 1), ("limejuice", 2), ("blackbeans", 1), ("salsa", 0.5),
+                 ("yogurt", 0.5)],
+    steps=["Heat the oven to 425°F. Toss the chicken, peppers, and onion with the oil and fajita seasoning, then spread on a big sheet pan.",
+           "Roast 20–22 minutes, then broil 2 minutes for char.",
+           "Cook the rice and stir in the lime juice. Warm the beans.",
+           "Portion rice, beans, chicken, and veggies. Salsa and yogurt go on the side."],
+    storage="Fridge 4 days; freezer 2 months (without toppings).",
+    reheat="Microwave 2 min.",
+    source=("Oh Snap! Macros", "https://ohsnapmacros.com/sheet-pan-fajita-bowls"))
+
+add(id="chicken-rice-broccoli-boxes", title="Cheesy Chicken, Rice & Broccoli Boxes",
+    protein="Chicken", cuisine="American", active=15, total=30, freezer=True,
+    equipment=["Stovetop"], tags=["Bowl", "Quick"],
+    blurb="The classic gym-bro box, made actually tasty. Dan-O's chicken, garlicky rice, broccoli, and a little melted cheddar on top.",
+    ingredients=[("breast", 1.75, "cut into bites"), ("danos", 2), ("oil", 1), ("rice", 1.25), ("garlicpowder", 1),
+                 ("broth", 2.5, "cook the rice in this"), ("broccoli", 4), ("cheddar", 0.75), ("lemonjuice", 1)],
+    steps=["Cook the rice in the broth with the garlic powder instead of water.",
+           "Toss the chicken with the Dan-O's and sear in the oil until golden and cooked through, 7–8 minutes.",
+           "Steam the broccoli and hit it with the lemon juice and a pinch of salt.",
+           "Portion rice, chicken, and broccoli, then sprinkle cheddar on top so it melts when you reheat."],
+    storage="Fridge 4 days; freezer 2 months.",
+    reheat="Microwave 2 min.",
+    source=("Gimme Some Oven", "https://www.gimmesomeoven.com/cheesy-broccoli-chicken-rice-bowls-meal-prep"))
+
+add(id="lemon-herb-chicken-sweet-potato", title="Lemon Herb Chicken & Sweet Potato Boxes",
+    protein="Chicken", cuisine="Mediterranean", active=15, total=40, freezer=False,
+    equipment=["Oven"], tags=["Sheet pan"],
+    blurb="Bright lemon-garlic chicken with roasted sweet potatoes and green beans. Simple, clean, and good cold or hot.",
+    ingredients=[("breast", 1.75), ("lemonjuice", 3), ("oil", 2), ("garlicherb", 2), ("oregano", 1), ("garlic", 1),
+                 ("salt", 1), ("sweetpot", 1.5, "cubed"), ("smokedpaprika", 0.5), ("greenbeans", 3)],
+    steps=["Marinate the chicken in the lemon juice, 1 tbsp oil, the garlic & herb, oregano, garlic, and half the salt for at least 15 minutes.",
+           "Heat the oven to 425°F. Toss the sweet potatoes with the remaining oil, smoked paprika, and salt and roast 15 minutes.",
+           "Add the chicken and green beans to the pan and roast 20 minutes more, until the chicken hits 160°F.",
+           "Rest, slice, and portion."],
+    storage="Fridge 4 days.",
+    reheat="Microwave 1½–2 min, or eat cold.",
+    source=("Texas A&M AgriLife – Dinner Tonight", "https://dinnertonight.tamu.edu/recipe/lemon-garlic-chicken/"))
+
+add(id="beef-crunchwraps", title="Air Fryer Beef Crunchwraps",
+    protein="Beef", cuisine="Tex-Mex", active=25, total=35, freezer=True,
+    equipment=["Air fryer", "Stovetop"], tags=["Wrap", "Freezer stash"],
+    blurb="A better-than-the-drive-thru crunchwrap: seasoned lean beef, cheddar, and a yogurt 'sour cream', folded and air-fried crispy. Uses your freezer beef.",
+    ingredients=[("beef93", 1.5), ("chilipowder", 2), ("cumin", 1), ("garlicpowder", 1), ("onionpowder", 1),
+                 ("paprika", 1), ("salt", 0.5), ("tpaste", 1), ("tortilla_lg", 6), ("cheddar", 1),
+                 ("yogurt", 0.5), ("salsa", 0.25), ("romaine", 1, "shredded, for serving"), ("tomato", 1, "diced, for serving")],
+    steps=["Brown the beef, then stir in the spices, salt, tomato paste, and a splash of water. Simmer until thick.",
+           "Lightly cook the tortillas so they're pliable.",
+           "Spread yogurt and salsa in the center of each tortilla, add beef and cheddar, then fold the edges in like a pinwheel to seal.",
+           "Air fry seam-side down at 380°F for 5–6 minutes, flip, and crisp 3 more.",
+           "Add lettuce and tomato at eating time, or tuck them in fresh if you're eating right away."],
+    storage="Fridge 4 days; freezer 2 months (wrap individually).",
+    reheat="Air fry 6–8 min at 360°F (from frozen, 12 min). The microwave works but loses the crunch.",
+    source=("Lauren Fit Foodie", "https://laurenfitfoodie.com/crunchwrap-supreme/"))
+
+add(id="greek-yogurt-chicken-salad", title="Greek Yogurt Chicken Salad Sandwiches",
+    protein="Chicken", cuisine="American", active=20, total=35, freezer=False,
+    equipment=["Stovetop"], tags=["Sandwich", "No reheat"],
+    blurb="Creamy, tangy chicken salad made with Greek yogurt instead of mayo, plus pickles and celery for crunch, on toasted sourdough. A no-microwave lunch.",
+    ingredients=[("breast", 1.5), ("broth", 2, "for poaching"), ("yogurt", 0.75), ("dijon", 1), ("lemonjuice", 1),
+                 ("celery", 3, "diced"), ("pickles", 2, "chopped"), ("redonion", 0.25, "minced"), ("dill", 1),
+                 ("garlicpowder", 0.5), ("salt", 0.5), ("blackpepper", 0.5), ("sourdough", 12), ("romaine", 1, "leaves")],
+    steps=["Poach the chicken: cover with the broth and water, bring to a simmer, cover, and cook on low 12–15 minutes, until 160°F. Cool and shred or dice.",
+           "Mix the yogurt, Dijon, lemon juice, dill, garlic powder, salt, and pepper.",
+           "Fold in the chicken, celery, pickles, and red onion.",
+           "Pack the salad separately and build sandwiches on toasted sourdough with lettuce at lunchtime."],
+    storage="Fridge 4 days.",
+    reheat="No reheating. Toast the bread if you can.",
+    source=("40 Aprons", "https://40aprons.com/high-protein-chicken-salad/"))
+
+add(id="chicken-pesto-pasta-salad", title="Chicken Pesto Pasta Salad",
+    protein="Chicken", cuisine="Italian", active=20, total=30, freezer=False,
+    equipment=["Stovetop"], tags=["Pasta", "No reheat"],
+    blurb="A cold pasta salad that actually fills you up: protein pasta, chicken, pesto, tomatoes, mozzarella, and spinach. Tastes better on day two.",
+    ingredients=[("breast", 1.5, "cut into bites"), ("woodfired", 2), ("oil", 1), ("pasta", 8), ("pesto", 5),
+                 ("yogurt", 0.25), ("lemonjuice", 2), ("cherrytom", 1, "halved"), ("mozz", 0.75), ("spinach", 2, "chopped"),
+                 ("parm", 0.25)],
+    steps=["Cook the pasta, rinse it under cold water, and drain well.",
+           "Season the chicken with the Kinder's wood-fired garlic and sear in the oil until cooked through. Let it cool.",
+           "Whisk the pesto, yogurt, and lemon juice.",
+           "Toss everything together with the tomatoes, mozzarella, spinach, and parmesan."],
+    storage="Fridge 4 days.",
+    reheat="Eat cold. Give it a stir and a squeeze of lemon if it's dry.",
+    source=("Real Life Nutritionist", "https://reallifenutritionist.com/chicken-pesto-pasta-salad"))
+
+add(id="chicken-quesadillas", title="Chicken & Black Bean Quesadillas",
+    protein="Chicken", cuisine="Tex-Mex", active=25, total=30, freezer=True,
+    equipment=["Stovetop", "Air fryer"], tags=["Freezer stash", "Quick"],
+    blurb="Fajita-spiced chicken, black beans, peppers, and two cheeses in a crispy tortilla. They freeze great, so make extra.",
+    ingredients=[("breast", 1.5, "diced small"), ("fajita", 1.5), ("oil", 1), ("pepper", 1, "diced"), ("onion", 0.5, "diced"),
+                 ("blackbeans", 1, "drained"), ("cheddar", 1), ("mozz", 0.5), ("tortilla_lg", 6), ("salsa", 0.5),
+                 ("yogurt", 0.5)],
+    steps=["Cook the chicken with the fajita seasoning in the oil, then add the pepper and onion and cook 4 minutes. Stir in the beans.",
+           "Lightly cook the tortillas. On half of each, layer cheese, filling, and more cheese, then fold.",
+           "Crisp in a dry skillet 2–3 minutes a side, or air fry at 380°F for 6–8 minutes, flipping once.",
+           "Cut in halves. Salsa and yogurt go on the side."],
+    storage="Fridge 4 days; freezer 2 months.",
+    reheat="Air fry 5 min at 370°F (10 from frozen), or a skillet. The microwave makes them soft.",
+    source=("Julie's Eats & Treats", "https://www.julieseatsandtreats.com/chicken-quesadilla"))

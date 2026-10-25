@@ -1,0 +1,102 @@
+"""Serving sizes and photos.
+
+Every batch is split into equal servings. Person A eats 2 servings per meal, person B eats 1.
+Breakfast batches: 12 servings (4 mornings each). Dinner and lunch batches: 6 servings
+(2 meals each: dinner + next-day lunch, or two lunches).
+"""
+
+DEFAULTS = {
+    "breakfast": dict(servings=12, sA=2, sB=1, label="1/12 of the batch"),
+    "dinner": dict(servings=6, sA=2, sB=1, label="⅙ of the batch"),
+    "lunch": dict(servings=6, sA=2, sB=1, label="⅙ of the batch"),
+}
+
+LABELS = {
+    # breakfast
+    "cottage-cheese-egg-bites": "2 egg bites",
+    "freezer-breakfast-burritos": "1 burrito",
+    "sweet-potato-turkey-hash": "about 1 cup hash + 1 jammy egg",
+    "protein-overnight-oats": "1 small jar (about ¾ cup)",
+    "mediterranean-sheet-pan-eggs": "1 egg square on half an English muffin",
+    "freezer-sausage-egg-sandwiches": "1 sandwich",
+    "kodiak-cottage-cheese-pancakes": "2 pancakes with yogurt and berries",
+    "turkey-potato-breakfast-bowls": "about 1 cup",
+    "sourdough-sausage-strata": "1 square",
+    "baked-protein-oatmeal": "1 square",
+    "beef-chorizo-egg-muffins": "2 egg muffins",
+    "steak-egg-hash-bowls": "about 1 cup",
+    # dinner
+    "philly-cheesesteak-peppers": "2 stuffed pepper halves",
+    "turkey-stuffed-peppers": "2 stuffed pepper halves",
+    "meatballs-marinara-pasta": "4 meatballs with pasta and sauce",
+    "chicken-parm-meatballs": "4 meatballs with pasta",
+    "sourdough-patty-melts": "1 patty melt + wedges",
+    "crispy-chicken-sandwiches": "1 sandwich + fries",
+    "greek-turkey-burger-bowls": "2 small patties over rice",
+    # lunch
+    "chicken-caesar-wraps": "1 wrap",
+    "buffalo-chicken-wraps": "1 wrap",
+    "beef-crunchwraps": "1 crunchwrap",
+    "greek-yogurt-chicken-salad": "1 sandwich",
+    "chicken-quesadillas": "1 quesadilla",
+}
+
+U = "https://images.unsplash.com/photo-"
+PHOTOS = {
+    "cottage-cheese-egg-bites": "1642463045543-55998f3174fc",
+    "freezer-breakfast-burritos": "1635107420756-9f930ed6c97b",
+    "sweet-potato-turkey-hash": "1606791422814-b32c705e3e2f",
+    "protein-overnight-oats": "1490371475955-4cb3bfc72f71",
+    "mediterranean-sheet-pan-eggs": "1525351484163-7529414344d8",
+    "freezer-sausage-egg-sandwiches": "1585684276730-a1aeacbf638f",
+    "kodiak-cottage-cheese-pancakes": "1612182062633-9ff3b3598e96",
+    "turkey-potato-breakfast-bowls": "1683990049119-44154297338f",
+    "sourdough-sausage-strata": "1510693206972-df098062cb71",
+    "baked-protein-oatmeal": "1572526474144-98925b3468df",
+    "beef-chorizo-egg-muffins": "1587900437942-8758241767ef",
+    "steak-egg-hash-bowls": "1676037150429-77d231b14c4e",
+    "cheeseburger-mac": "1667499989723-c4ab9549d63c",
+    "big-mac-bowls": "1590742309630-e9f9b66da3f7",
+    "beef-burrito-bowls": "1602881916963-5daf2d97c06e",
+    "korean-beef-bowls": "1783375175952-705a0600e05c",
+    "beef-sweet-potato-chili": "1666819632298-fe15dc7d4c34",
+    "chimichurri-steak-bowls": "1600891964092-4316c288032e",
+    "philly-cheesesteak-peppers": "1673646960062-9aeb2188335f",
+    "meatballs-marinara-pasta": "1632808664408-f8ab196b0523",
+    "sweet-potato-shepherds-pie": "1696935257293-9ec4f03074a1",
+    "beef-gyro-bowls": "1673960616288-0cb46f318a68",
+    "slow-cooker-barbacoa": "1599974579688-8dbdd335c77f",
+    "sourdough-patty-melts": "1655279563187-a4010cc494f5",
+    "turkey-taco-sweet-potato-skillet": "1716392976013-66d90cac4411",
+    "greek-turkey-burger-bowls": "1543352632-5a4b24e4d2a6",
+    "turkey-bolognese": "1785396347369-b5e70e3f3af3",
+    "turkey-chili": "1591386767153-987783380885",
+    "turkey-stuffed-peppers": "1689012117967-433df843aa7a",
+    "turkey-taco-pasta": "1579619002916-88cd4c81a70c",
+    "turkey-sloppy-joes": "1709403736483-25974cac365d",
+    "chicken-shawarma-bowls": "1682566509568-ded8649b26bb",
+    "buffalo-chicken-bowls": "1571162437205-8889ff2fee26",
+    "salsa-chicken-burrito-bowls": "1666025954339-97a97468de17",
+    "tuscan-chicken-pasta": "1608219992759-8d74ed8d76eb",
+    "bbq-chicken-sweet-potato-bowls": "1592011432621-f7f576f44484",
+    "chicken-pesto-pasta": "1473093295043-cdd812d0e601",
+    "chicken-tikka-masala": "1565557623262-b51c2513a641",
+    "honey-garlic-chicken-potatoes": "1610057099443-fde8c4d50f91",
+    "chicken-enchilada-rice-skillet": "1673925885673-15f8e48d4e7e",
+    "chicken-parm-meatballs": "1635264685671-739e75e73e0f",
+    "greek-chicken-potatoes": "1610057099431-d73a1c9d2f2f",
+    "crispy-chicken-sandwiches": "1608039755401-742074f0548d",
+    "chicken-caesar-wraps": "1626700051175-6818013e1d4f",
+    "buffalo-chicken-wraps": "1719282431565-3b30bb7d2658",
+    "sheet-pan-fajita-bowls": "1788601988443-9b859ba3fdf4",
+    "chicken-rice-broccoli-boxes": "1667499745120-f9bcef8f584e",
+    "lemon-herb-chicken-sweet-potato": "1666819691716-827f78d892f3",
+    "beef-crunchwraps": "1778168199427-4e839943d20f",
+    "greek-yogurt-chicken-salad": "1540713434306-58505cf1b6fc",
+    "chicken-pesto-pasta-salad": "1597393353365-9d4366392fe9",
+    "chicken-quesadillas": "1673990349292-ed2dfa7988c9",
+}
+
+def photo_url(rid, w=900):
+    pid = PHOTOS.get(rid)
+    return f"{U}{pid}?auto=format&fit=crop&w={w}&q=70" if pid else None
