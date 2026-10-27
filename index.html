@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta property="og:title" content="Prep Counter">
-<meta property="og:description" content="High-protein meal prep: 52 recipes, weekly plans, and shopping lists.">
+<meta property="og:description" content="High-protein meal prep: 100+ recipes, weekly plans, and shopping lists.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -22,17 +22,22 @@
 <header class="top">
   <div class="top-row">
     <a class="brand" href="#recipes">Prep Counter</a>
+    <span class="top-actions">
+    <a class="share-btn" href="#more" data-tab="more" aria-label="Settings">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span class="lbl">Settings</span>
+    </a>
     <button class="share-btn" id="shareApp">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Share
     </button>
+    </span>
   </div>
   <nav class="tabs" aria-label="Sections">
     <a href="#recipes" data-tab="recipes">Recipes</a>
-    <a href="#week" data-tab="week">Week</a>
+    <a href="#week" data-tab="week">This week</a>
     <a href="#list" data-tab="list">Shopping</a>
     <a href="#pantry" data-tab="pantry">Pantry</a>
-    <a href="#more" data-tab="more">Settings</a>
   </nav>
 </header>
 

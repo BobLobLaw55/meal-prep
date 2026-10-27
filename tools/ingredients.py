@@ -28,6 +28,11 @@ DB = {
     "thigh": I("boneless skinless chicken thighs", "lb", 454, 121, 19.7, 0, 4.1, 3.50, "Meat", "check", stock="thigh"),
     "sirloin": I("top sirloin steak", "lb", 454, 150, 23, 0, 6, 9.50, "Meat"),
     "chuck": I("chuck roast", "lb", 454, 180, 20, 0, 11, 7.50, "Meat"),
+    "tsausage": I("turkey breakfast sausage (raw, bulk)", "lb", 454, 170, 18, 0, 10.5, 4.50, "Meat", None, "1 lb roll"),
+    "kielbasa": I("smoked turkey kielbasa", "oz", 28, 140, 13, 7, 7, 0.30, "Meat", None, "13–14 oz rope"),
+    "tbacon": I("turkey bacon", "slice", 15, 220, 17, 3, 15, 0.25, "Meat", None, "12 oz pack ≈ 16 slices"),
+    "tpepperoni": I("turkey pepperoni", "oz", 28, 250, 25, 3, 14, 0.50, "Meat", None, "6 oz bag"),
+    "deliturkey": I("deli turkey breast (low sodium)", "oz", 28, 100, 18, 3, 1.5, 0.60, "Meat", None, "1 lb from the deli counter"),
     "shaved": I("shaved / thin-sliced steak", "lb", 454, 170, 21, 0, 9.5, 9.00, "Meat"),
 
     # ---------- Dairy & eggs ----------
@@ -130,6 +135,14 @@ DB = {
     "broccoli": I("frozen broccoli florets", "cup", 90, 28, 2.8, 5, 0.3, 0.40, "Frozen", "check"),
     "greenbeans": I("frozen green beans", "cup", 120, 31, 1.8, 7, 0.2, 0.40, "Frozen", "check"),
 
+    "quinoa": I("quinoa, dry", "cup", 170, 368, 14, 64, 6, 1.20, "Pantry"),
+    "gnocchi": I("shelf-stable potato gnocchi", "lb", 454, 140, 3, 31, 0.3, 2.50, "Pantry", None, "16 oz pack"),
+    "whitebeans": I("cannellini or great northern beans (15 oz can)", "can", 250, 110, 7.5, 19, 0.4, 1.00, "Pantry"),
+    "craisins": I("dried cranberries", "tbsp", 10, 308, 0.2, 82, 1.4, 0.10, "Pantry"),
+    "wrappers": I("egg roll wrappers", "each", 32, 290, 9.8, 58, 1.5, 0.15, "Produce", None, "refrigerated, 20-count pack"),
+    "apple": I("apple", "each", 180, 52, 0.3, 14, 0.2, 0.70, "Produce"),
+    "hashbrowns": I("frozen shredded hash browns", "cup", 80, 70, 1.5, 15, 0.3, 0.35, "Frozen", None, "30 oz bag ≈ 10 cups"),
+
     # ---------- Spices & your blends ----------
     "salt": S("kosher salt"),
     "blackpepper": S("black pepper"),
@@ -150,6 +163,8 @@ DB = {
     "italian": S("Italian seasoning", pantry=None, price=0.10, hint="one jar lasts months"),
     "garam": S("garam masala", pantry=None, price=0.15, hint="one jar lasts months"),
     "dill": S("dried dill", pantry=None, price=0.10, hint="one jar lasts months"),
+    "cajun": S("Cajun seasoning", pantry=None, price=0.10, hint="one jar lasts months"),
+    "rosemary": S("dried rosemary", pantry=None, price=0.08, hint="one jar lasts months"),
     "ranchseason": S("ranch seasoning", unit="tbsp"),
     "fajita": S("fajita seasoning", unit="tbsp"),
     "danos": S("Dan-O's seasoning", unit="tsp"),

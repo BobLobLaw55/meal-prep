@@ -17,7 +17,7 @@ const HANDY = [["quick", "30 min or less"], ["freezer", "Freezer-friendly"], ["S
 
 let DATA = null, R = {}, S = null;
 const PHOTOS = {}; // recipe id -> object URL of the user's own photo
-const ui = { q: "", meal: "all", protein: "all", handy: new Set(), cuisine: "all", sort: "default", trip: "sun" };
+const ui = { open: false, read: "", q: "", meal: "all", protein: "all", handy: new Set(), cuisine: "all", sort: "default", trip: "sun" };
 
 /* ---------------- State ---------------- */
 function defaultState() {
@@ -136,7 +136,7 @@ function route() {
   render(TABS.includes(h) ? h : "recipes");
 }
 function render(tab, scroll = true) {
-  document.querySelectorAll(".tabs a").forEach((a) => (a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")));
+  document.querySelectorAll(".tabs a, .top-actions a").forEach((a) => (a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")));
   $("#view").dataset.tab = tab;
   ({ recipes: viewRecipes, week: viewWeek, list: viewList, pantry: viewPantry, more: viewMore })[tab]();
   if (scroll) window.scrollTo(0, 0);
@@ -149,10 +149,18 @@ const refreshCurrent = () => render(currentTab(), false);
 function viewRecipes() {
   const cuisines = [...new Set(DATA.recipes.map((r) => r.cuisine))].sort();
   view().innerHTML = `
-    <h1 class="hello">What are we eating, ${esc(nameA())} &amp; ${esc(nameB())}?</h1>
-    <p class="lede">${active().length} high-protein recipes. Breakfasts make 4 mornings, lunches make 2 days, and each dinner covers tonight plus tomorrow's lunch.</p>
-    <label class="sr-only" for="q">Search recipes</label>
-    <input id="q" class="search" type="search" placeholder="Search a dish or ingredient, like tacos or sourdough" value="${esc(ui.q)}" autocomplete="off">
+    <form class="ask" id="askForm" role="search">
+      <label class="ask-label" for="q">What sounds good, ${esc(nameA())} &amp; ${esc(nameB())}?</label>
+      <div class="ask-row">
+        <input id="q" class="search ask-input" type="search" enterkeyhint="search" placeholder="Try: chicken tonight, or meal prep wraps with peppers" value="${esc(ui.q)}" autocomplete="off">
+        <button class="btn ask-go" type="submit">Find recipes</button>
+      </div>
+      <div class="chips ask-ideas" aria-label="Ideas">
+        ${["Chicken tonight", "Wraps for lunch", "Quick beef dinner", "Freezer breakfasts", "Soup", "Something with sweet potatoes", "Slow cooker", "Pasta night"].map((t) => `<button type="button" class="chip" data-idea="${esc(t)}">${esc(t)}</button>`).join("")}
+      </div>
+      <p class="ask-read" id="askRead" aria-live="polite"></p>
+    </form>
+    <details class="more-filters" ${ui.open ? "open" : ""}><summary>Browse with filters</summary>
     <div class="filters">
       <div class="fgroup"><span class="flabel" id="lMeal">Meal</span><div class="chips" role="group" aria-labelledby="lMeal">
         ${[["all", "All"], ["breakfast", "Breakfast"], ["lunch", "Lunch"], ["dinner", "Dinner"]].map(([v, l]) => chip("meal", v, l)).join("")}
@@ -169,11 +177,14 @@ function viewRecipes() {
           ${[["default", "Name"], ["rating", "Our ratings"], ["protein", "Most protein"], ["time", "Fastest"], ["cost", "Cheapest"]].map(([v, l]) => `<option value="${v}" ${ui.sort === v ? "selected" : ""}>${l}</option>`).join("")}
         </select></label>
       </div>
-    </div>
+    </div></details>
     <p class="count" id="count"></p>
     <ul class="recipe-list" id="list"></ul>`;
   const q = $("#q");
   q.addEventListener("input", () => { ui.q = q.value; drawList(); });
+  $("#askForm").addEventListener("submit", (e) => { e.preventDefault(); ui.q = q.value; drawList(); q.blur(); $("#count").scrollIntoView({ behavior: "smooth", block: "start" }); });
+  view().querySelectorAll("[data-idea]").forEach((b) => b.addEventListener("click", () => { q.value = ui.q = b.dataset.idea; drawList(); $("#count").scrollIntoView({ behavior: "smooth", block: "start" }); }));
+  $(".more-filters").addEventListener("toggle", (e) => { ui.open = e.target.open; });
   view().querySelectorAll("[data-filter]").forEach((b) => b.addEventListener("click", () => {
     ui[b.dataset.filter] = b.dataset.value;
     b.parentElement.querySelectorAll("[data-filter]").forEach((x) => x.setAttribute("aria-pressed", x === b));
@@ -195,17 +206,76 @@ function matchesHandy(r, h) {
   if (h === "freezer") return r.freezer;
   return r.tags.includes(h) || r.equipment.includes(h);
 }
+/* ---------- "What sounds good?" prompt matching ----------
+   Reads a casual prompt ("I'm feeling chicken tonight", "meal prep wraps with peppers")
+   into a meal, a protein, style tags, and leftover ingredient words, then ranks recipes. */
+const STOP = new Set("i im i'm id i'd ive i've feel feeling like want wanna would love to some something and have has a an the for me make making meal meals prep prepping with using use got of in on we our us my lets let's let cook cooking eat eating maybe or kind please can could you idea ideas recipe recipes food good sounds sound what this week few couple that be is are it its it's any anything kinda sort really just also plus up out new into tonight's today day days night nights batch batches".split(" "));
+const ASK_MEAL = [[/\b(breakfast|breakfasts|morning|mornings|brunch)\b/, "breakfast"], [/\b(lunch|lunches|midday)\b/, "lunch"], [/\b(dinner|dinners|supper|tonight)\b/, "dinner"]];
+const ASK_PROTEIN = [[/\b(chicken|chickens|thigh|thighs|breast|breasts)\b/, "Chicken"], [/\b(beef|steak|steaks|burger|burgers|cheeseburger|sirloin|brisket|barbacoa|meatball|meatballs)\b/, "Beef"], [/\b(turkey|turkeys)\b/, "Turkey"]];
+const ASK_STYLE = [
+  [/\b(wrap|wraps|burrito|burritos|crunchwrap|quesadilla|quesadillas|roll|rolls)\b/, "Wraps", (r) => r.tags.includes("Wrap") || (/burrito|wrap|quesadilla|egg roll/i.test(r.title) && !/bowl/i.test(r.title))],
+  [/\b(bowl|bowls)\b/, "Bowls", (r) => r.tags.includes("Bowl")],
+  [/\b(pasta|noodle|noodles|mac|spaghetti|penne|alfredo)\b/, "Pasta", (r) => r.tags.includes("Pasta") || /pasta|mac (&|and) cheese|protein mac|penne|alfredo|spaghetti|bolognese/i.test(r.title)],
+  [/\b(soup|soups|chili|stew)\b/, "Soup or chili", (r) => /soup|chili|stew/i.test(r.title)],
+  [/\b(sandwich|sandwiches|sub|melt|melts)\b/, "Sandwiches", (r) => r.tags.includes("Sandwich")],
+  [/\b(taco|tacos|tex|mex|mexican|enchilada|enchiladas|fajita|fajitas|salsa)\b/, "Tex-Mex", (r) => /Mex/.test(r.cuisine) || /taco|enchilada|fajita|burrito|quesadilla/i.test(r.title)],
+  [/\b(italian|parm|parmesan|marinara|lasagna)\b/, "Italian", (r) => r.cuisine === "Italian"],
+  [/\b(greek|mediterranean|gyro|shawarma|tzatziki)\b/, "Mediterranean", (r) => r.cuisine === "Mediterranean" || /greek|gyro|shawarma/i.test(r.title)],
+  [/\b(bbq|barbecue)\b/, "BBQ", (r) => r.cuisine === "BBQ" || /bbq/i.test(r.title)],
+  [/\b(buffalo|wing|wings)\b/, "Buffalo", (r) => /buffalo/i.test(r.title)],
+  [/\b(quick|fast|easy|30|weeknight|lazy|simple)\b/, "Quick", (r) => r.total <= 30],
+  [/\b(freezer|freeze|frozen|stash)\b/, "Freezer-friendly", (r) => r.freezer],
+  [/\b(slow|crockpot|crock)\b/, "Slow cooker", (r) => r.equipment.includes("Slow cooker")],
+  [/\b(air|airfryer)\b/, "Air fryer", (r) => r.equipment.includes("Air fryer")],
+  [/\bsheet\b/, "Sheet pan", (r) => r.tags.includes("Sheet pan")],
+  [/\b(pot|skillet|pan)\b/, "One pot or pan", (r) => r.tags.includes("One pot") || r.tags.includes("One pan")],
+  [/\b(casserole|bake)\b/, "Casserole", (r) => r.tags.includes("Casserole") || /bake|casserole/i.test(r.title)],
+  [/\b(cold|reheat|desk|no-reheat)\b/, "No reheating", (r) => r.tags.includes("No reheat") || /eat cold/i.test(r.reheat)],
+  [/\b(comfort|cozy|hearty)\b/, "Comfort food", (r) => r.tags.includes("Comfort") || /soup|chili/i.test(r.title)],
+  [/\b(egg|eggs)\b/, "Eggs", (r) => r.ingredients.some((i) => i.k === "eggs" || i.k === "whites")],
+  [/\b(stuffed)\b/, "Stuffed", (r) => /stuffed/i.test(r.title)],
+  [/\b(light|lean|cut|cutting|healthy)\b/, "Lighter", (r) => r.perServing.kcal <= 420],
+  [/\b(protein|bulk|bulking|gains)\b/, "Big protein", (r) => r.perServing.p >= 42],
+  [/\b(cheap|budget)\b/, "Budget", (r) => r.cost <= 15],
+];
+function parseAsk(text) {
+  const t = " " + text.toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' -]/g, " ") + " ";
+  const out = { meal: null, protein: null, styles: [], words: [] };
+  for (const [re, m] of ASK_MEAL) if (re.test(t)) { out.meal = m; break; }
+  for (const [re, p] of ASK_PROTEIN) if (re.test(t)) { out.protein = p; break; }
+  const used = new Set();
+  for (const [re, label, test] of ASK_STYLE) { const m = t.match(re); if (m) { out.styles.push({ label, test }); used.add(m[0]); } }
+  const known = /^(breakfast|breakfasts|morning|mornings|brunch|lunch|lunches|midday|dinner|dinners|supper|tonight|chicken|chickens|thigh|thighs|breast|breasts|beef|steak|steaks|turkey|turkeys|slow|cooker|air|fryer|sheet|pan|pot|one)$/;
+  const sing = (w) => (w.endsWith("oes") ? w.slice(0, -2) : w.endsWith("ies") ? w.slice(0, -3) + "y" : w.length > 3 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w);
+  const toks = t.split(/\s+/).map((w) => w.replace(/^'+|'+$/g, "")).filter((w) => w.length > 2 && !STOP.has(w) && !known.test(w) && !used.has(w)).map(sing);
+  const names = DATA.recipes.map((r) => r.title.toLowerCase()).concat(Object.values(DATA.ingredients).map((d) => d.name.toLowerCase())).join(" | ");
+  for (let i = 0; i < toks.length; i++) {
+    const pair = toks[i] + " " + toks[i + 1];
+    if (toks[i + 1] && names.includes(pair)) { out.words.push(pair); i++; } else out.words.push(toks[i]);
+  }
+  return out;
+}
+function haystack(r) { return [r.title, r.blurb, r.cuisine, ...r.tags, ...r.ingredients.map((i) => DATA.ingredients[i.k].name)].join(" ").toLowerCase(); }
+function scoreAsk(r, a) {
+  let sc = 0;
+  for (const st of a.styles) if (st.test(r)) sc += 4;
+  const hay = haystack(r), title = r.title.toLowerCase();
+  for (const w of a.words) { if (title.includes(w)) sc += 4; else if (hay.includes(w)) sc += 2; }
+  const avg = avgRating(r.id); if (avg) sc += (avg - 3) * 0.6;
+  for (const g of Object.keys(meatNeeds(r))) if ((S.stock[g] || 0) > 0) sc += 0.5;
+  return sc;
+}
+function readAsk(a) {
+  const bits = [a.meal && MEAL_LABEL[a.meal], a.protein && PROTEIN_LABEL[a.protein], ...a.styles.map((s) => s.label), ...a.words.map((w) => `“${w}”`)].filter(Boolean);
+  return bits.length ? `Looking for: ${bits.join(" · ")}` : "";
+}
 function filtered() {
-  const words = ui.q.toLowerCase().split(/\s+/).filter(Boolean);
-  const list = active().filter((r) => {
+  const a = ui.q.trim() ? parseAsk(ui.q) : null;
+  const base = active().filter((r) => {
     if (ui.meal !== "all" && r.meal !== ui.meal) return false;
     if (ui.protein !== "all" && r.protein !== ui.protein) return false;
     if (ui.cuisine !== "all" && r.cuisine !== ui.cuisine) return false;
     for (const h of ui.handy) if (!matchesHandy(r, h)) return false;
-    if (words.length) {
-      const hay = [r.title, r.blurb, r.cuisine, r.protein, r.meal, ...r.tags, ...r.equipment, ...r.ingredients.map((i) => DATA.ingredients[i.k].name)].join(" ").toLowerCase();
-      if (!words.every((w) => hay.includes(w))) return false;
-    }
     return true;
   });
   const sorters = {
@@ -215,11 +285,23 @@ function filtered() {
     time: (a, b) => a.total - b.total,
     cost: (a, b) => a.cost - b.cost,
   };
-  return list.sort(sorters[ui.sort] || sorters.default);
+  ui.read = "";
+  if (!a) return base.sort(sorters[ui.sort] || sorters.default);
+  ui.read = readAsk(a);
+  // Meal and protein narrow the list when they're asked for; everything else ranks it.
+  let pool = base.filter((r) => (!a.meal || r.meal === a.meal) && (!a.protein || r.protein === a.protein));
+  if (!pool.length) pool = base.filter((r) => !a.protein || r.protein === a.protein);
+  const asked = a.styles.length + a.words.length;
+  const scored = pool.map((r) => ({ r, s: scoreAsk(r, a) }));
+  let hits = a.styles.length ? scored.filter((x) => a.styles.some((st) => st.test(x.r))) : asked ? scored.filter((x) => x.s >= 2) : scored;
+  if (!hits.length) { ui.read += (ui.read ? ". " : "") + "Nothing matched that, so here is everything. Try a protein, a dish, or an ingredient."; hits = scored; }
+  hits.sort((x, y) => (ui.sort !== "default" ? (sorters[ui.sort](x.r, y.r)) : 0) || y.s - x.s || x.r.title.localeCompare(y.r.title));
+  return hits.map((x) => x.r);
 }
 function drawList() {
   const list = filtered();
-  $("#count").textContent = `Showing ${list.length} recipe${list.length === 1 ? "" : "s"}`;
+  $("#count").textContent = ui.q.trim() ? `${list.length} match${list.length === 1 ? "" : "es"}, best first` : `Showing ${list.length} recipe${list.length === 1 ? "" : "s"}`;
+  if ($("#askRead")) $("#askRead").textContent = ui.read || "";
   $("#list").innerHTML = list.length ? list.map(cardHTML).join("") : `<li class="empty">Nothing matches those filters. Try turning one off or searching a single ingredient.</li>`;
   $("#list").querySelectorAll("[data-id]").forEach((li) => {
     li.addEventListener("click", () => openRecipe(li.dataset.id));
@@ -333,7 +415,7 @@ function openRecipe(id) {
   $("#shareR").addEventListener("click", () => share(r.title, appURL() + "#r/" + id));
   $("#removeR").addEventListener("click", () => {
     if (removed) { S.removed = S.removed.filter((x) => x !== id); toast("Back in rotation"); }
-    else { S.removed.push(id); toast("Removed. Bring it back anytime in Settings."); }
+    else { S.removed.push(id); toast("Removed. Bring it back anytime in Settings (top right)."); }
     save(); closeSheet(); refreshCurrent();
   });
   $("#addWeek").addEventListener("click", () => addToWeek(r));

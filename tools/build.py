@@ -5,13 +5,16 @@ from ingredients import DB, STOCK
 from recipes_breakfast import B
 from recipes_lunch import L
 from recipes_dinner import D
+from recipes_more_breakfast import B2
+from recipes_more_lunch import L2
+from recipes_more_dinner import D2
 from servings import DEFAULTS, LABELS, photo_url
 
 out_dir = os.path.join(os.path.dirname(__file__), "..", "data")
 os.makedirs(out_dir, exist_ok=True)
 
 recipes, errors, ids = [], [], set()
-for r in B + L + D:
+for r in B + B2 + L + L2 + D + D2:
     if r["id"] in ids: errors.append(f"dup id {r['id']}")
     ids.add(r["id"])
     tot = dict(kcal=0, p=0, c=0, f=0); cost = 0; ings = []
