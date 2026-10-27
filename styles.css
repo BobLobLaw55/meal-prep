@@ -258,3 +258,18 @@ textarea { width: 100%; min-height: 70px; padding: 10px 12px; border-radius: 12p
 .more-filters .filters { margin-top: 4px; }
 @media (max-width: 380px) { .top-actions .share-btn { padding: 7px 10px; } .top-actions .share-btn .lbl { display: none; } }
 .count { scroll-margin-top: 140px; }
+
+/* ---------- Store prices ---------- */
+.store-plan { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 12px 16px; margin: 10px 0; }
+.store-plan p { margin: 4px 0; }
+.sp-title { font: 700 18px/1.2 var(--font-head); }
+.sp-note { color: var(--ink-2); font-size: 14px; }
+.seg-sm button { font-size: 14px; padding: 7px 6px; }
+.where { display: block; font-size: 14px; color: var(--ink); margin-top: 2px; }
+.sale { background: var(--warn); color: var(--card); border-radius: 6px; padding: 0 6px; font-size: 12px; font-weight: 700; }
+.aisle-sum { color: var(--ink-2); font: 400 15px var(--font-body); margin-left: 6px; }
+.deals { background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 10px 16px; margin: 10px 0; }
+.deals summary { cursor: pointer; font-weight: 700; }
+.deals ul { margin: 8px 0 0; padding-left: 18px; }
+.deals li { margin: 6px 0; }
+.deal-t { color: var(--ink-2); }

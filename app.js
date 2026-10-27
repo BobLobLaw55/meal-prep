@@ -15,9 +15,10 @@ const AISLES = ["Meat", "Produce", "Dairy & Eggs", "Bakery", "Frozen", "Pantry",
 const HANDY = [["quick", "30 min or less"], ["freezer", "Freezer-friendly"], ["Slow cooker", "Slow cooker"], ["Air fryer", "Air fryer"],
   ["Sheet pan", "Sheet pan"], ["One pot", "One pot"], ["Wrap", "Wraps"], ["Sandwich", "Sandwiches"], ["Pasta", "Pasta"], ["Bowl", "Bowls"], ["No reheat", "No reheating"]];
 
-let DATA = null, R = {}, S = null;
+let DATA = null, R = {}, S = null, PRICES = null;
+const STORE_NAMES = { walmart: "Walmart", aldi: "Aldi", publix: "Publix", winndixie: "Winn-Dixie" };
 const PHOTOS = {}; // recipe id -> object URL of the user's own photo
-const ui = { open: false, read: "", q: "", meal: "all", protein: "all", handy: new Set(), cuisine: "all", sort: "default", trip: "sun" };
+const ui = { group: "aisle", open: false, read: "", q: "", meal: "all", protein: "all", handy: new Set(), cuisine: "all", sort: "default", trip: "sun" };
 
 /* ---------------- State ---------------- */
 function defaultState() {
@@ -693,16 +694,77 @@ function buildList(trip) {
   }
   return { buy, check, have, freezer };
 }
+/* ---------- Store prices (weekly scrape: Walmart + Aldi shelf prices, weekly-ad sales) ---------- */
+function storeOptions(k) {
+  const P = PRICES && PRICES.items && PRICES.items[k]; if (!P) return [];
+  const out = [];
+  for (const s of ["walmart", "aldi"]) if (P[s] && P[s].u) out.push({ s, u: P[s].u, n: P[s].n, sale: false });
+  const today = new Date().toISOString().slice(0, 10);
+  for (const d of P.deals || []) if (d.u && (!d.to || d.to >= today)) out.push({ s: d.s, u: d.u, n: d.n, t: d.t, sale: true });
+  return out.sort((a, b) => a.u - b.u);
+}
+const unitWord = (d) => (d.unit === "each" ? "ea" : d.unit);
+function cheapest(k) { return storeOptions(k)[0] || null; }
+function itemCost(it) { const c = cheapest(it.k); return it.q * (c ? c.u : DATA.ingredients[it.k].price); }
+// Totals for one store, falling back to the cheapest known price for items that store didn't have.
+function storePlan(items) {
+  const priced = items.filter((it) => storeOptions(it.k).length);
+  if (!priced.length) return null;
+  const mix = {}; let mixTotal = 0;
+  priced.forEach((it) => { const c = cheapest(it.k); mix[c.s] = (mix[c.s] || 0) + it.q * c.u; mixTotal += it.q * c.u; });
+  const solo = {};
+  for (const s of ["walmart", "aldi"]) {
+    let tot = 0, missing = 0;
+    priced.forEach((it) => { const o = storeOptions(it.k).find((x) => x.s === s); if (o) tot += it.q * o.u; else { missing++; tot += it.q * cheapest(it.k).u; } });
+    solo[s] = { tot, missing };
+  }
+  return { mix, mixTotal, solo, priced: priced.length, total: items.length };
+}
+function planHTML(items) {
+  const P = storePlan(items); if (!P) return "";
+  const stops = Object.entries(P.mix).sort((a, b) => b[1] - a[1]);
+  const bestSolo = Object.entries(P.solo).sort((a, b) => a[1].tot - b[1].tot)[0];
+  const save = bestSolo[1].tot - P.mixTotal;
+  const worth = stops.length > 1 && save >= 8;
+  return `<div class="store-plan">
+    <p class="sp-title">Where to shop</p>
+    ${stops.length === 1 ? `<p>Everything priced is cheapest at <b>${STORE_NAMES[stops[0][0]]}</b>: about $${Math.round(P.mixTotal)}.</p>` :
+      `<p>Cheapest split: ${stops.map(([s, v]) => `<b>${STORE_NAMES[s]}</b> $${Math.round(v)}`).join(" + ")} = <b>$${Math.round(P.mixTotal)}</b>.</p>
+       <p>All at ${STORE_NAMES[bestSolo[0]]}: about $${Math.round(bestSolo[1].tot)}. ${worth ? `The extra stop saves about <b>$${Math.round(save)}</b>, so it's worth it.` : `The split only saves about $${Math.max(0, Math.round(save))}, so one stop at ${STORE_NAMES[bestSolo[0]]} is fine.`}</p>`}
+    <p class="sp-note">Counts the "check you have enough" items too, in case you're out. ${P.priced} of ${P.total} items have store prices (from ${esc(PRICES.updated)}).</p>
+  </div>`;
+}
+function dealsHTML() {
+  if (!PRICES || !PRICES.items) return "";
+  const today = new Date().toISOString().slice(0, 10), rows = [];
+  for (const [k, P] of Object.entries(PRICES.items)) {
+    const reg = ["walmart", "aldi"].map((s) => P[s] && P[s].u).filter(Boolean), low = reg.length ? Math.min(...reg) : null;
+    for (const d of P.deals || []) {
+      if (d.to && d.to < today) continue;
+      const beats = d.u && low && d.u < low * 0.9;
+      const bogo = /bogo|buy 1/i.test(d.t || "");
+      if (beats || (bogo && DATA.ingredients[k].stock)) rows.push({ k, d, beats, pct: beats ? 1 - d.u / low : 0.5 });
+    }
+  }
+  if (!rows.length) return "";
+  rows.sort((a, b) => b.pct - a.pct);
+  return `<details class="deals"><summary>This week's sales on your ingredients (${rows.length})</summary><ul>${rows.slice(0, 20).map(({ k, d, beats }) => {
+    const ing = DATA.ingredients[k];
+    return `<li><b>${STORE_NAMES[d.s]}</b>: ${esc(d.n)} <span class="deal-t">${esc(d.t)}</span>${beats ? ` <span class="tag">$${d.u.toFixed(2)}/${esc(unitWord(ing))}</span>` : ""}${ing.stock ? ` <span class="tag">stock the freezer</span>` : ""}${d.to ? `<span class="why">Through ${esc(d.to)}</span>` : ""}</li>`;
+  }).join("")}</ul></details>`;
+}
 function viewList() {
   if (!S.plan) { view().innerHTML = `<h1 class="hello">Shopping list</h1><p class="lede">Your list builds itself from this week's plan. Generate a week first.</p><div class="btn-row"><a class="btn" href="#week">Plan this week</a></div>`; return; }
   const L = buildList(ui.trip);
-  const cost = L.buy.reduce((a, it) => a + it.q * DATA.ingredients[it.k].price, 0);
+  const cost = L.buy.reduce((a, it) => a + itemCost(it), 0);
   const byAisle = {}; L.buy.forEach((it) => (byAisle[DATA.ingredients[it.k].aisle] ||= []).push(it));
+  const byStore = {}; L.buy.forEach((it) => { const c = cheapest(it.k); (byStore[c ? STORE_NAMES[c.s] : "Any store (no price yet)"] ||= []).push(it); });
   const li = (it, extra = "", free = false) => {
-    const d = DATA.ingredients[it.k], key = ui.trip + ":" + it.k, price = free ? 0 : d.price * it.q;
+    const d = DATA.ingredients[it.k], key = ui.trip + ":" + it.k, price = free ? 0 : itemCost(it), c = free ? null : cheapest(it.k);
+    const where = c ? `<span class="where">${ui.group === "store" ? "" : `<b>${STORE_NAMES[c.s]}</b> `}$${c.u.toFixed(2)}/${esc(unitWord(d))}${c.sale ? ` <span class="sale">sale</span>` : ""}${storeOptions(it.k).length > 1 ? ` · next: ${STORE_NAMES[storeOptions(it.k)[1].s]} $${storeOptions(it.k)[1].u.toFixed(2)}` : ""}</span>` : "";
     return `<li><label><input type="checkbox" data-check="${esc(key)}" ${S.checked[key] ? "checked" : ""}>
       <span class="what"><b>${esc(fmtQty(it.q, d.unit, true))}</b> ${esc(itemName(d, it.q))}${extra}
-      <span class="why">For ${[...it.from].map(esc).join(", ")}${d.hint ? `. Tip: ${esc(d.hint)}` : ""}</span></span>
+      ${where}<span class="why">For ${[...it.from].map(esc).join(", ")}${d.hint ? `. Tip: ${esc(d.hint)}` : ""}</span></span>
       <span class="price">${price >= 0.5 ? "$" + price.toFixed(0) : ""}</span></label></li>`;
   };
   view().innerHTML = `
@@ -713,19 +775,24 @@ function viewList() {
       <button data-trip="all" aria-pressed="${ui.trip === "all"}">Whole week</button>
     </div>
     <div class="totals"><span>Estimated spend for what's left to buy</span><b>$${Math.round(cost)}</b></div>
+    ${PRICES ? planHTML([...L.buy, ...L.check]) : ""}
+    ${PRICES ? `<div class="seg seg-sm" role="group" aria-label="Group the list by"><button data-group="aisle" aria-pressed="${ui.group === "aisle"}">By aisle</button><button data-group="store" aria-pressed="${ui.group === "store"}">By cheapest store</button></div>` : ""}
     <div class="btn-row"><button class="btn small ghost" id="copyList">Copy as text</button><button class="btn small ghost" id="clearChecks">Uncheck all</button></div>
+    ${dealsHTML()}
     ${L.freezer.length ? `<p class="aisle">Pull from the freezer to thaw</p><ul class="check-list">${L.freezer.map((it) => li(it, "", true)).join("")}</ul>` : ""}
-    ${AISLES.filter((a) => byAisle[a]).map((a) => `<p class="aisle">${a}</p><ul class="check-list">${byAisle[a].sort((x, y) => DATA.ingredients[x.k].name.localeCompare(DATA.ingredients[y.k].name)).map((it) => li(it)).join("")}</ul>`).join("")}
+    ${ui.group === "store" && PRICES ? Object.keys(byStore).sort().map((st) => `<p class="aisle">${esc(st)} <span class="aisle-sum">$${Math.round(byStore[st].reduce((a, it) => a + itemCost(it), 0))}</span></p><ul class="check-list">${byStore[st].sort((x, y) => AISLES.indexOf(DATA.ingredients[x.k].aisle) - AISLES.indexOf(DATA.ingredients[y.k].aisle)).map((it) => li(it)).join("")}</ul>`).join("") :
+      AISLES.filter((a) => byAisle[a]).map((a) => `<p class="aisle">${a}</p><ul class="check-list">${byAisle[a].sort((x, y) => DATA.ingredients[x.k].name.localeCompare(DATA.ingredients[y.k].name)).map((it) => li(it)).join("")}</ul>`).join("")}
     ${L.check.length ? `<p class="aisle">Check you have enough</p><p class="lede small" style="margin:0 0 6px">You usually keep these around.</p><ul class="check-list">${L.check.map((it) => li(it)).join("")}</ul>` : ""}
     ${L.have.length ? `<p class="lede small" style="margin-top:18px">${L.have.length} pantry staples are hidden (spices, sauces, oils). Change what counts as stocked in Pantry.</p>` : ""}
     ${!L.buy.length && !L.check.length ? `<p class="empty">Nothing to buy for this trip.</p>` : ""}
-    <p class="lede small">Prices are rough local estimates for budgeting.</p>`;
+    <p class="lede small">${PRICES ? `Store prices update every Thursday evening: Walmart (NW 23rd St) and Aldi (NW 13th St) shelf prices, plus weekly-ad sales at Publix and Winn-Dixie in Alachua. Items without a store price use a rough estimate. Last update: ${esc(PRICES.updated)}.` : "Prices are rough local estimates for budgeting."}</p>`;
   view().querySelectorAll("[data-trip]").forEach((b) => b.addEventListener("click", () => { ui.trip = b.dataset.trip; viewList(); }));
+  view().querySelectorAll("[data-group]").forEach((b) => b.addEventListener("click", () => { ui.group = b.dataset.group; viewList(); }));
   view().querySelectorAll("[data-check]").forEach((c) => c.addEventListener("change", () => { c.checked ? (S.checked[c.dataset.check] = true) : delete S.checked[c.dataset.check]; save(); }));
   $("#clearChecks").addEventListener("click", () => { Object.keys(S.checked).filter((k) => k.startsWith(ui.trip + ":")).forEach((k) => delete S.checked[k]); save(); viewList(); });
   $("#copyList").addEventListener("click", () => {
-    const lines = [], add = (title, arr) => { if (!arr.length) return; lines.push("", title); arr.forEach((it) => { const d = DATA.ingredients[it.k]; lines.push(`- ${fmtQty(it.q, d.unit, true)} ${itemName(d, it.q)}`); }); };
-    AISLES.forEach((a) => byAisle[a] && add(a, byAisle[a])); add("Check you have enough", L.check);
+    const lines = [], add = (title, arr) => { if (!arr.length) return; lines.push("", title); arr.forEach((it) => { const d = DATA.ingredients[it.k]; const c = cheapest(it.k); lines.push(`- ${fmtQty(it.q, d.unit, true)} ${itemName(d, it.q)}${c && ui.group !== "store" ? ` (${STORE_NAMES[c.s]})` : ""}`); }); };
+    if (ui.group === "store" && PRICES) Object.keys(byStore).sort().forEach((st) => add(st, byStore[st])); else AISLES.forEach((a) => byAisle[a] && add(a, byAisle[a])); add("Check you have enough", L.check);
     copyText(`${{ sun: "Sunday", wed: "Wednesday", all: "This week's" }[ui.trip]} shopping list` + lines.join("\n"), "List copied");
   });
 }
@@ -846,6 +913,7 @@ async function boot() {
   try { DATA = await (await fetch("data/recipes.json", { cache: "no-cache" })).json(); }
   catch (e) { view().innerHTML = `<p class="empty">Couldn't load the recipes. Check your connection and refresh.</p>`; return; }
   DATA.recipes.forEach((r) => (R[r.id] = r));
+  try { const pr = await fetch("data/prices.json", { cache: "no-cache" }); if (pr.ok) PRICES = await pr.json(); } catch (e) {}
   S = load(); save();
   await loadPhotos();
   $("#shareApp").addEventListener("click", shareApp);
