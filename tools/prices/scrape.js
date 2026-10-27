@@ -138,9 +138,9 @@
     const M = await map(); const STORES = { "Publix": "publix", "Winn-Dixie": "winndixie", "ALDI": "aldi", "Walmart": "walmart" }; let n = 0;
     for (const it of M.items) {
       try {
-        const q = it.q.replace(/\b\d+(\.\d+)?\s*(oz|lb|count|ct)\b/gi, "").replace(/\b(half gallon|gallon|can|bag|loaf)\b/gi, "").trim();
+        const q = it.q.replace(/\b\d+(\.\d+)?%?\s*(oz|lb|count|ct)?\b/gi, "").replace(/\b(half gallon|gallon|can|bag|loaf|boneless|skinless|lean|low sodium|uncooked|old fashioned|pure|toasted|sliced white|fresh|large)\b/gi, "").replace(/\s+/g, " ").trim();
         const j = await (await fetch(`/flipp/items/search?locale=en-us&postal_code=${M.postal}&q=${encodeURIComponent(q)}`)).json();
-        const FLIPP_NO = ["pizza", "boyardee", "condensada", "picante", "ready rice", "soup", "chips", "frozen meal", "kit"];
+        const FLIPP_NO = ["pizza", "boyardee", "condensada", "casera", "picante", "ready rice", "soup", "chips", "frozen meal", "kit", "party bowl", "queso"];
         const need = it.need.map((w) => w.split("|").map((a) => a.replace(/\d+%?/g, "").trim()).filter(Boolean).join("|")).filter(Boolean);
         const seen = new Set();
         const deals = (j.items || []).filter((x) => STORES[x.merchant_name] && matches({ need, no: it.no.concat(FLIPP_NO) }, x.name)).map((x) => {
