@@ -1,0 +1,1248 @@
+{
+"stores": {
+"walmart": "Walmart, NW 23rd St (Gainesville)",
+"aldi": "Aldi, 3773 NW 13th St (Gainesville)",
+"publix": "Publix, Alachua Market Place",
+"winndixie": "Winn-Dixie, 15560 NW US Hwy 441 (Alachua)"
+},
+"postal": "32615",
+"items": [
+{
+"k": "beef93",
+"q": "93% lean ground beef",
+"need": [
+"ground beef|ground sirloin",
+"93|96"
+],
+"no": [
+"patties",
+"organic"
+],
+"unit": "lb",
+"g": 454,
+"est": 6.5
+},
+{
+"k": "beef90",
+"q": "90% lean ground beef",
+"need": [
+"ground beef|ground sirloin",
+"90"
+],
+"no": [
+"patties",
+"organic"
+],
+"unit": "lb",
+"g": 454,
+"est": 5.8
+},
+{
+"k": "turkey",
+"q": "93% lean ground turkey",
+"need": [
+"ground turkey",
+"93"
+],
+"no": [
+"organic",
+"patties"
+],
+"unit": "lb",
+"g": 454,
+"est": 5.0
+},
+{
+"k": "gchicken",
+"q": "ground chicken",
+"need": [
+"ground chicken"
+],
+"no": [
+"organic"
+],
+"unit": "lb",
+"g": 454,
+"est": 4.8
+},
+{
+"k": "breast",
+"q": "boneless skinless chicken breasts",
+"need": [
+"breast"
+],
+"no": [
+"tender",
+"thin",
+"breaded",
+"organic",
+"cooked",
+"grilled"
+],
+"unit": "lb",
+"g": 454,
+"est": 3.5
+},
+{
+"k": "thigh",
+"q": "boneless skinless chicken thighs",
+"need": [
+"thigh",
+"boneless"
+],
+"no": [
+"organic",
+"cooked"
+],
+"unit": "lb",
+"g": 454,
+"est": 3.5
+},
+{
+"k": "sirloin",
+"q": "top sirloin steak",
+"need": [
+"sirloin",
+"steak"
+],
+"no": [
+"ground"
+],
+"unit": "lb",
+"g": 454,
+"est": 9.5
+},
+{
+"k": "chuck",
+"q": "chuck roast",
+"need": [
+"chuck",
+"roast"
+],
+"no": [
+"ground"
+],
+"unit": "lb",
+"g": 454,
+"est": 7.5
+},
+{
+"k": "tsausage",
+"q": "ground turkey breakfast sausage",
+"need": [
+"turkey",
+"sausage"
+],
+"no": [
+"link",
+"patties",
+"cooked",
+"smoked"
+],
+"unit": "lb",
+"g": 454,
+"est": 4.5
+},
+{
+"k": "kielbasa",
+"q": "smoked turkey sausage",
+"need": [
+"turkey",
+"sausage|kielbasa"
+],
+"no": [
+"breakfast",
+"links"
+],
+"unit": "oz",
+"g": 28,
+"est": 0.3
+},
+{
+"k": "tbacon",
+"q": "turkey bacon",
+"need": [
+"turkey",
+"bacon"
+],
+"no": [],
+"unit": "slice",
+"g": 15,
+"est": 0.25
+},
+{
+"k": "tpepperoni",
+"q": "turkey pepperoni",
+"need": [
+"turkey",
+"pepperoni"
+],
+"no": [],
+"unit": "oz",
+"g": 28,
+"est": 0.5
+},
+{
+"k": "deliturkey",
+"q": "deli sliced turkey breast",
+"need": [
+"turkey"
+],
+"no": [
+"ground",
+"bacon",
+"sausage",
+"pepperoni"
+],
+"unit": "oz",
+"g": 28,
+"est": 0.6
+},
+{
+"k": "shaved",
+"q": "shaved steak",
+"need": [
+"shaved|thin|philly",
+"steak|beef"
+],
+"no": [],
+"unit": "lb",
+"g": 454,
+"est": 9.0
+},
+{
+"k": "eggs",
+"q": "large eggs 18 count",
+"need": [
+"egg"
+],
+"no": [
+"whites",
+"pasture",
+"organic",
+"hard"
+],
+"unit": "each",
+"g": 50,
+"est": 0.3
+},
+{
+"k": "whites",
+"q": "liquid egg whites",
+"need": [
+"egg white"
+],
+"no": [],
+"unit": "cup",
+"g": 243,
+"est": 1.1
+},
+{
+"k": "cottage",
+"q": "2% cottage cheese 24 oz",
+"need": [
+"cottage"
+],
+"no": [],
+"unit": "cup",
+"g": 226,
+"est": 1.5
+},
+{
+"k": "yogurt",
+"q": "plain nonfat greek yogurt 32 oz",
+"need": [
+"greek",
+"plain"
+],
+"no": [
+"vanilla",
+"whole milk",
+"2%"
+],
+"unit": "cup",
+"g": 245,
+"est": 1.4
+},
+{
+"k": "cheddar",
+"q": "shredded sharp cheddar cheese",
+"need": [
+"cheddar",
+"shred"
+],
+"no": [],
+"unit": "cup",
+"g": 113,
+"est": 1.5
+},
+{
+"k": "cheddar_sl",
+"q": "sliced cheddar cheese",
+"need": [
+"cheddar",
+"slice"
+],
+"no": [],
+"unit": "slice",
+"g": 21,
+"est": 0.25
+},
+{
+"k": "mozz",
+"q": "shredded mozzarella",
+"need": [
+"mozzarella",
+"shred"
+],
+"no": [],
+"unit": "cup",
+"g": 113,
+"est": 1.5
+},
+{
+"k": "provolone",
+"q": "sliced provolone",
+"need": [
+"provolone"
+],
+"no": [],
+"unit": "slice",
+"g": 21,
+"est": 0.3
+},
+{
+"k": "parm",
+"q": "grated parmesan cheese",
+"need": [
+"parmesan"
+],
+"no": [
+"shredded"
+],
+"unit": "cup",
+"g": 100,
+"est": 3.5
+},
+{
+"k": "feta",
+"q": "crumbled feta",
+"need": [
+"feta"
+],
+"no": [],
+"unit": "cup",
+"g": 150,
+"est": 3.0
+},
+{
+"k": "creamcheese",
+"q": "light cream cheese 8 oz",
+"need": [
+"cream cheese"
+],
+"no": [
+"whipped",
+"spread"
+],
+"unit": "oz",
+"g": 28,
+"est": 0.25
+},
+{
+"k": "almondmilk",
+"q": "unsweetened almond milk half gallon",
+"need": [
+"almond",
+"unsweetened"
+],
+"no": [],
+"unit": "cup",
+"g": 240,
+"est": 0.4
+},
+{
+"k": "milk",
+"q": "2% milk gallon",
+"need": [
+"2%",
+"milk"
+],
+"no": [
+"chocolate",
+"lactose",
+"powder"
+],
+"unit": "cup",
+"g": 244,
+"est": 0.25
+},
+{
+"k": "oats",
+"q": "old fashioned oats",
+"need": [
+"oats"
+],
+"no": [
+"instant",
+"quick",
+"steel"
+],
+"unit": "cup",
+"g": 80,
+"est": 0.35
+},
+{
+"k": "kodiak",
+"q": "kodiak pancake mix",
+"need": [
+"kodiak"
+],
+"no": [
+"cup",
+"bar"
+],
+"unit": "cup",
+"g": 106,
+"est": 1.2
+},
+{
+"k": "whey",
+"q": "vanilla whey protein powder",
+"need": [
+"whey|protein powder"
+],
+"no": [
+"bar",
+"shake"
+],
+"unit": "scoop",
+"g": 32,
+"est": 1.0
+},
+{
+"k": "rice",
+"q": "jasmine rice 2 lb",
+"need": [
+"rice"
+],
+"no": [
+"ready",
+"microwave",
+"minute",
+"cauliflower",
+"organic",
+"fried"
+],
+"unit": "cup",
+"g": 185,
+"est": 0.45
+},
+{
+"k": "pasta",
+"q": "protein pasta",
+"need": [
+"protein"
+],
+"no": [],
+"unit": "oz",
+"g": 28.35,
+"est": 0.28
+},
+{
+"k": "potatoes",
+"q": "yukon gold potatoes",
+"need": [
+"potato"
+],
+"no": [
+"sweet",
+"chips",
+"instant",
+"mashed"
+],
+"unit": "lb",
+"g": 454,
+"est": 1.2
+},
+{
+"k": "sweetpot",
+"q": "sweet potatoes",
+"need": [
+"sweet potato|yam"
+],
+"no": [
+"fries",
+"chips",
+"canned",
+"pie"
+],
+"unit": "lb",
+"g": 454,
+"est": 1.3
+},
+{
+"k": "tortilla_lg",
+"q": "uncooked flour tortillas burrito",
+"need": [
+"tortilla"
+],
+"no": [
+"corn",
+"chips"
+],
+"unit": "each",
+"g": 64,
+"est": 0.55
+},
+{
+"k": "sourdough",
+"q": "sourdough bread loaf",
+"need": [
+"sourdough"
+],
+"no": [
+"muffin",
+"bites",
+"pretzel"
+],
+"unit": "slice",
+"g": 45,
+"est": 0.4
+},
+{
+"k": "sdmuffin",
+"q": "sourdough english muffins",
+"need": [
+"english muffin"
+],
+"no": [],
+"unit": "each",
+"g": 57,
+"est": 0.65
+},
+{
+"k": "tortilla",
+"q": "uncooked flour tortillas",
+"need": [
+"tortilla"
+],
+"no": [
+"corn",
+"chips"
+],
+"unit": "each",
+"g": 45,
+"est": 0.4
+},
+{
+"k": "blackbeans",
+"q": "black beans 15 oz can",
+"need": [
+"black bean"
+],
+"no": [
+"refried",
+"soup",
+"seasoned"
+],
+"unit": "can",
+"g": 250,
+"est": 1.0
+},
+{
+"k": "kidney",
+"q": "kidney beans 15 oz can",
+"need": [
+"kidney"
+],
+"no": [],
+"unit": "can",
+"g": 250,
+"est": 1.0
+},
+{
+"k": "crushed",
+"q": "crushed tomatoes 28 oz",
+"need": [
+"crushed tomato"
+],
+"no": [],
+"unit": "can",
+"g": 794,
+"est": 1.8
+},
+{
+"k": "diced",
+"q": "diced tomatoes 14.5 oz",
+"need": [
+"diced tomato"
+],
+"no": [
+"fire",
+"green chil"
+],
+"unit": "can",
+"g": 411,
+"est": 1.0
+},
+{
+"k": "fireroast",
+"q": "fire roasted diced tomatoes",
+"need": [
+"fire roast"
+],
+"no": [],
+"unit": "can",
+"g": 411,
+"est": 1.3
+},
+{
+"k": "tpaste",
+"q": "tomato paste 6 oz",
+"need": [
+"tomato paste"
+],
+"no": [],
+"unit": "tbsp",
+"g": 16,
+"est": 0.12
+},
+{
+"k": "marinara",
+"q": "marinara sauce 24 oz",
+"need": [
+"marinara"
+],
+"no": [],
+"unit": "jar",
+"g": 680,
+"est": 5.5
+},
+{
+"k": "salsa",
+"q": "salsa 16 oz",
+"need": [
+"salsa"
+],
+"no": [
+"verde",
+"seasoning",
+"chips"
+],
+"unit": "jar",
+"g": 454,
+"est": 3.0
+},
+{
+"k": "enchilada",
+"q": "red enchilada sauce",
+"need": [
+"enchilada"
+],
+"no": [
+"green"
+],
+"unit": "can",
+"g": 283,
+"est": 1.8
+},
+{
+"k": "chiles",
+"q": "diced green chiles 4 oz",
+"need": [
+"green chile"
+],
+"no": [],
+"unit": "can",
+"g": 113,
+"est": 1.0
+},
+{
+"k": "chipotle",
+"q": "chipotle peppers in adobo",
+"need": [
+"chipotle"
+],
+"no": [
+"seasoning",
+"mayo",
+"sauce"
+],
+"unit": "each",
+"g": 10,
+"est": 0.25
+},
+{
+"k": "broth",
+"q": "low sodium chicken broth",
+"need": [
+"chicken",
+"broth|stock"
+],
+"no": [],
+"unit": "cup",
+"g": 240,
+"est": 0.6
+},
+{
+"k": "beefbroth",
+"q": "low sodium beef broth",
+"need": [
+"beef",
+"broth|stock"
+],
+"no": [],
+"unit": "cup",
+"g": 240,
+"est": 0.6
+},
+{
+"k": "sundried",
+"q": "sun dried tomatoes",
+"need": [
+"sun"
+],
+"no": [],
+"unit": "oz",
+"g": 28,
+"est": 0.6
+},
+{
+"k": "pesto",
+"q": "basil pesto",
+"need": [
+"pesto"
+],
+"no": [],
+"unit": "tbsp",
+"g": 15,
+"est": 0.3
+},
+{
+"k": "honey",
+"q": "honey",
+"need": [
+"honey"
+],
+"no": [
+"mustard",
+"ham",
+"bbq",
+"nut"
+],
+"unit": "tbsp",
+"g": 21,
+"est": 0.2
+},
+{
+"k": "pickles",
+"q": "dill pickle chips",
+"need": [
+"pickle"
+],
+"no": [
+"relish"
+],
+"unit": "oz",
+"g": 28,
+"est": 0.15
+},
+{
+"k": "sesameoil",
+"q": "toasted sesame oil",
+"need": [
+"sesame oil"
+],
+"no": [],
+"unit": "tsp",
+"g": 4.5,
+"est": 0.1
+},
+{
+"k": "chia",
+"q": "chia seeds",
+"need": [
+"chia"
+],
+"no": [],
+"unit": "tbsp",
+"g": 12,
+"est": 0.2
+},
+{
+"k": "vanilla",
+"q": "pure vanilla extract",
+"need": [
+"vanilla extract"
+],
+"no": [],
+"unit": "tsp",
+"g": 4,
+"est": 0.25
+},
+{
+"k": "bakingpowder",
+"q": "baking powder",
+"need": [
+"baking powder"
+],
+"no": [],
+"unit": "tsp",
+"g": 4,
+"est": 0.05
+},
+{
+"k": "onion",
+"q": "yellow onion",
+"need": [
+"onion"
+],
+"no": [
+"red",
+"green",
+"powder",
+"rings",
+"sweet"
+],
+"unit": "each",
+"g": 150,
+"est": 0.8
+},
+{
+"k": "redonion",
+"q": "red onion",
+"need": [
+"red onion"
+],
+"no": [],
+"unit": "each",
+"g": 150,
+"est": 0.9
+},
+{
+"k": "pepper",
+"q": "bell pepper",
+"need": [
+"bell pepper"
+],
+"no": [
+"mini",
+"diced",
+"frozen"
+],
+"unit": "each",
+"g": 150,
+"est": 1.0
+},
+{
+"k": "jalapeno",
+"q": "jalapeno pepper",
+"need": [
+"jalape"
+],
+"no": [
+"sliced",
+"jar",
+"chips"
+],
+"unit": "each",
+"g": 15,
+"est": 0.15
+},
+{
+"k": "spinach",
+"q": "baby spinach",
+"need": [
+"spinach"
+],
+"no": [
+"frozen",
+"dip"
+],
+"unit": "oz",
+"g": 28,
+"est": 0.4
+},
+{
+"k": "zucchini",
+"q": "zucchini",
+"need": [
+"zucchini"
+],
+"no": [
+"noodle",
+"spiral"
+],
+"unit": "each",
+"g": 200,
+"est": 0.9
+},
+{
+"k": "cucumber",
+"q": "cucumber",
+"need": [
+"cucumber"
+],
+"no": [
+"mini",
+"english"
+],
+"unit": "each",
+"g": 300,
+"est": 0.8
+},
+{
+"k": "tomato",
+"q": "roma tomatoes",
+"need": [
+"tomato"
+],
+"no": [
+"cherry",
+"grape",
+"canned",
+"sauce"
+],
+"unit": "each",
+"g": 120,
+"est": 0.7
+},
+{
+"k": "cherrytom",
+"q": "grape tomatoes",
+"need": [
+"grape|cherry",
+"tomato"
+],
+"no": [],
+"unit": "pint",
+"g": 300,
+"est": 3.0
+},
+{
+"k": "romaine",
+"q": "romaine hearts",
+"need": [
+"romaine"
+],
+"no": [
+"salad kit",
+"chopped"
+],
+"unit": "each",
+"g": 200,
+"est": 1.2
+},
+{
+"k": "carrots",
+"q": "carrots 2 lb bag",
+"need": [
+"carrot"
+],
+"no": [
+"baby",
+"shredded",
+"juice"
+],
+"unit": "lb",
+"g": 454,
+"est": 1.0
+},
+{
+"k": "celery",
+"q": "celery",
+"need": [
+"celery"
+],
+"no": [
+"salt",
+"seed"
+],
+"unit": "stalk",
+"g": 40,
+"est": 0.2
+},
+{
+"k": "mushrooms",
+"q": "sliced white mushrooms 8 oz",
+"need": [
+"mushroom"
+],
+"no": [
+"soup",
+"canned"
+],
+"unit": "oz",
+"g": 28,
+"est": 0.3
+},
+{
+"k": "avocado",
+"q": "avocado",
+"need": [
+"avocado"
+],
+"no": [
+"oil",
+"guac",
+"mayo"
+],
+"unit": "each",
+"g": 150,
+"est": 1.0
+},
+{
+"k": "cilantro",
+"q": "cilantro",
+"need": [
+"cilantro"
+],
+"no": [
+"paste",
+"dried"
+],
+"unit": "bunch",
+"g": 50,
+"est": 0.8
+},
+{
+"k": "parsley",
+"q": "fresh parsley",
+"need": [
+"parsley"
+],
+"no": [
+"dried",
+"flakes"
+],
+"unit": "bunch",
+"g": 60,
+"est": 1.0
+},
+{
+"k": "lime",
+"q": "limes",
+"need": [
+"lime"
+],
+"no": [
+"juice",
+"chips"
+],
+"unit": "each",
+"g": 44,
+"est": 0.4
+},
+{
+"k": "lemon",
+"q": "lemons",
+"need": [
+"lemon"
+],
+"no": [
+"juice",
+"pepper",
+"cake"
+],
+"unit": "each",
+"g": 60,
+"est": 0.6
+},
+{
+"k": "banana",
+"q": "bananas",
+"need": [
+"banana"
+],
+"no": [
+"chips",
+"bread"
+],
+"unit": "each",
+"g": 118,
+"est": 0.25
+},
+{
+"k": "slaw",
+"q": "coleslaw mix",
+"need": [
+"coleslaw|slaw"
+],
+"no": [
+"dressing",
+"kit"
+],
+"unit": "cup",
+"g": 70,
+"est": 0.3
+},
+{
+"k": "berries",
+"q": "frozen mixed berries",
+"need": [
+"berr"
+],
+"no": [],
+"unit": "cup",
+"g": 140,
+"est": 0.9
+},
+{
+"k": "corn",
+"q": "frozen corn",
+"need": [
+"corn"
+],
+"no": [
+"can",
+"bread",
+"chips",
+"dog",
+"flour",
+"tortilla"
+],
+"unit": "cup",
+"g": 140,
+"est": 0.5
+},
+{
+"k": "peas",
+"q": "frozen peas",
+"need": [
+"pea"
+],
+"no": [
+"snap",
+"snow",
+"peanut",
+"chick"
+],
+"unit": "cup",
+"g": 140,
+"est": 0.5
+},
+{
+"k": "broccoli",
+"q": "frozen broccoli florets",
+"need": [
+"broccoli"
+],
+"no": [
+"cheese",
+"rice"
+],
+"unit": "cup",
+"g": 90,
+"est": 0.4
+},
+{
+"k": "greenbeans",
+"q": "frozen green beans",
+"need": [
+"green bean"
+],
+"no": [
+"casserole",
+"can"
+],
+"unit": "cup",
+"g": 120,
+"est": 0.4
+},
+{
+"k": "quinoa",
+"q": "quinoa",
+"need": [
+"quinoa"
+],
+"no": [
+"ready",
+"microwave"
+],
+"unit": "cup",
+"g": 170,
+"est": 1.2
+},
+{
+"k": "gnocchi",
+"q": "potato gnocchi",
+"need": [
+"gnocchi"
+],
+"no": [
+"cauliflower"
+],
+"unit": "lb",
+"g": 454,
+"est": 2.5
+},
+{
+"k": "whitebeans",
+"q": "cannellini beans can",
+"need": [
+"cannellini|great northern|white bean"
+],
+"no": [],
+"unit": "can",
+"g": 250,
+"est": 1.0
+},
+{
+"k": "craisins",
+"q": "dried cranberries",
+"need": [
+"cranberr"
+],
+"no": [
+"juice",
+"sauce"
+],
+"unit": "tbsp",
+"g": 10,
+"est": 0.1
+},
+{
+"k": "wrappers",
+"q": "egg roll wrappers",
+"need": [
+"egg roll",
+"wrap"
+],
+"no": [],
+"unit": "each",
+"g": 32,
+"est": 0.15
+},
+{
+"k": "apple",
+"q": "gala apples",
+"need": [
+"apple"
+],
+"no": [
+"juice",
+"sauce",
+"pie",
+"chips",
+"vinegar"
+],
+"unit": "each",
+"g": 180,
+"est": 0.7
+},
+{
+"k": "hashbrowns",
+"q": "frozen shredded hash browns",
+"need": [
+"hash brown"
+],
+"no": [
+"patties"
+],
+"unit": "cup",
+"g": 80,
+"est": 0.35
+}
+]
+}
