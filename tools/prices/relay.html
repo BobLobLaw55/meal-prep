@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>relay</title>
+<script>
+// Hands scrape.bundle.js to the store page that opened/framed this page (store sites block fetching it directly).
+fetch("scrape.bundle.js?t=" + Date.now()).then((r) => r.text()).then((code) => {
+  const msg = { type: "pc-bundle", code };
+  if (window.opener) window.opener.postMessage(msg, "*");
+  if (window.parent !== window) window.parent.postMessage(msg, "*");
+  document.body.textContent = "sent";
+  if (window.opener) setTimeout(() => window.close(), 500);
+});
+</script>

@@ -1,4 +1,5 @@
-/* Prep Counter weekly price scraper. Paste this whole file into the browser (javascript_tool) on the page named
+/* Prep Counter weekly price scraper. Paste tools/prices/scrape.bundle.js (this file with the map built in; run
+   python3 tools/prices/bundle.py after changing either) — store sites block fetching the map from GitHub. Paste the whole bundle into the browser (javascript_tool) on the page named
    in each step; it reads tools/prices/price_map.json from GitHub and stores results on window.__px.
    Steps:  1) on https://www.walmart.com/  -> await PX.walmart()
            2) on https://www.aldi.us/store/aldi/storefront -> PX.aldi() (runs in the background; poll PX.status())
@@ -10,7 +11,12 @@
   const COUNT_UNITS = ["each", "slice", "scoop", "bunch", "stalk", "pint", "can", "jar"];
   const px = (window.__px = window.__px || { walmart: {}, aldi: {}, deals: {}, log: [] });
   let MAP = null;
-  async function map() { if (!MAP) MAP = await (await fetch(MAP_URL + "?t=" + Date.now())).json(); return MAP; }
+  async function map() {
+    if (MAP) return MAP;
+    MAP = window.__pxmap || (typeof EMBEDDED_MAP !== "undefined" && EMBEDDED_MAP) || await (await fetch(MAP_URL + "?t=" + Date.now())).json();
+    MAP.items = MAP.items.map((i) => (Array.isArray(i) ? { k: i[0], q: i[1], need: i[2], no: i[3], unit: i[4], g: i[5], est: i[6] } : i));
+    return MAP;
+  }
   const lc = (s) => (s || "").toLowerCase();
   function matches(it, name) {
     const n = lc(name);
