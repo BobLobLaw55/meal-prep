@@ -141,17 +141,22 @@ var EMBEDDED_MAP = {"postal":"32615","items":[["beef93","93% lean ground beef",[
       try {
         const q = it.q.replace(/\b\d+(\.\d+)?\s*(oz|lb|count|ct)\b/gi, "").replace(/\b(half gallon|gallon|can|bag|loaf)\b/gi, "").trim();
         const j = await (await fetch(`/flipp/items/search?locale=en-us&postal_code=${M.postal}&q=${encodeURIComponent(q)}`)).json();
-        const deals = (j.items || []).filter((x) => STORES[x.merchant_name] && matches({ need: it.need.map((w) => w.split("|").map((a) => a.replace(/\d+%?/g, "").trim()).filter(Boolean).join("|")).filter(Boolean), no: it.no }, x.name)).slice(0, 4).map((x) => {
+        const FLIPP_NO = ["pizza", "boyardee", "condensada", "picante", "ready rice", "soup", "chips", "frozen meal", "kit"];
+        const need = it.need.map((w) => w.split("|").map((a) => a.replace(/\d+%?/g, "").trim()).filter(Boolean).join("|")).filter(Boolean);
+        const seen = new Set();
+        const deals = (j.items || []).filter((x) => STORES[x.merchant_name] && matches({ need, no: it.no.concat(FLIPP_NO) }, x.name)).map((x) => {
           const post = lc(x.post_price_text), pre = x.pre_price_text || "";
           let u = null, price = x.current_price;
           const multi = (pre + " " + (x.current_price || "")).match(/(\d+)\s*\/\s*\$?(\d+(?:\.\d+)?)/);
           if (multi) price = +multi[2] / +multi[1];
           if (price && /lb/.test(post) && it.unit === "lb") u = price;
           else if (price && /lb/.test(post)) u = (price / G.lb) * it.g;
-          else if (price && !/bogo|off|free/i.test(pre + post)) { const v = perUnit(it, price, x.name, null); if (v && v > it.est * 0.2 && v < it.est * 5) u = v; }
+          else if (price && !/bogo|off|free/i.test(pre + post)) u = perUnit(it, price, x.name, null);
+          if (u && (u < it.est * 0.35 || u > it.est * 3)) u = null; // ad listings are vaguer than shelf listings, so be stricter
           const txt = [pre, x.current_price != null ? "$" + x.current_price : "", x.post_price_text || ""].join(" ").replace(/\s+/g, " ").trim();
           return { s: STORES[x.merchant_name], n: x.name.slice(0, 70), t: txt, u: u ? +u.toFixed(3) : null, to: (x.valid_to || "").slice(0, 10) };
-        });
+        }).filter((d) => { const key = d.s + d.n; if (seen.has(key)) return false; seen.add(key); return true; })
+          .sort((a, b) => (a.u ?? 1e9) - (b.u ?? 1e9)).slice(0, 4);
         if (deals.length) { px.deals[it.k] = deals; n++; }
       } catch (e) { px.log.push("flipp err " + it.k + " " + e.message); }
     }
