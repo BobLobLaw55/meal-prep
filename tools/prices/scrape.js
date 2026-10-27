@@ -1,10 +1,12 @@
 /* Prep Counter weekly price scraper. Paste tools/prices/scrape.bundle.js (this file with the map built in; run
    python3 tools/prices/bundle.py after changing either) — store sites block fetching the map from GitHub. Paste the whole bundle into the browser (javascript_tool) on the page named
    in each step; it reads tools/prices/price_map.json from GitHub and stores results on window.__px.
-   Steps:  1) on https://www.walmart.com/  -> await PCX.walmart()
+   Steps:  1) on https://www.walmart.com/  -> await PCX.walmart() (background; poll PCX.wmStatus())
            2) on https://www.aldi.us/store/aldi/storefront -> PCX.aldi() (runs in the background; poll PCX.status())
            3) on https://backflipp.wishabi.com/flipp/items/search?locale=en-us&postal_code=32615&q=eggs -> await PCX.flipp()
-           Read results with PCX.dump("walmart"|"aldi"|"deals", start, count). Each line is tab-separated. */
+           Read results with PCX.dump("walmart"|"aldi", start, count) -> "key price-per-unit package-price;..." and
+           PCX.dump("deals", start, count) -> lines "key|store|price-per-unit|ad text|product|valid-through".
+           The browser tool cuts results at ~1,000 characters, so read in chunks (about 40 items or 12 deal lines). */
 (() => {
   const MAP_URL = "https://raw.githubusercontent.com/BobLobLaw55/meal-prep/main/tools/prices/price_map.json";
   const G = { lb: 453.6, oz: 28.35, floz: 29.57, gal: 3785, qt: 946, pt: 473, l: 1000, ml: 1, g: 1, kg: 1000 };
@@ -74,23 +76,35 @@
     return out;
   }
 
-  async function walmart() {
-    const M = await map(); let ok = 0;
+  // Walmart starts serving a bot check after ~70 quick searches, so go slowly, skip items already priced,
+  // and back off for a minute when a search comes back without product data.
+  let wmState = "idle";
+  async function walmartRun() {
+    const M = await map(); let ok = Object.keys(px.walmart).length, blocked = 0, pauses = 0, i = 0;
     for (const it of M.items) {
+      i++; if (px.walmart[it.k]) continue;
       try {
         const h = await (await fetch("/search?q=" + encodeURIComponent(it.q), { credentials: "include" })).text();
-        const d = JSON.parse(h.match(/<script id="__NEXT_DATA__"[^>]*>(.*?)<\/script>/s)[1]);
-        const items = d.props.pageProps.initialData.searchResult.itemStacks.flatMap((s) => s.items || []).filter((i) => i.name && i.price != null).slice(0, 10);
-        const cands = items.map((i) => {
-          const lines = (i.priceInfo && i.priceInfo.priceDetails && i.priceInfo.priceDetails.priceLines) || [];
+        const m = h.match(/<script id="__NEXT_DATA__"[^>]*>(.*?)<\/script>/s);
+        if (!m) {
+          blocked++;
+          if (blocked >= 3) { if (pauses++ >= 3) { px.log.push("walmart stopped: bot check"); break; } wmState = "paused (bot check)"; await new Promise((r) => setTimeout(r, 90000)); blocked = 0; }
+          px.log.push("walmart blocked " + it.k); continue;
+        }
+        blocked = 0;
+        const d = JSON.parse(m[1]);
+        const items = d.props.pageProps.initialData.searchResult.itemStacks.flatMap((s) => s.items || []).filter((x) => x.name && x.price != null).slice(0, 10);
+        const cands = items.map((x) => {
+          const lines = (x.priceInfo && x.priceInfo.priceDetails && x.priceInfo.priceDetails.priceLines) || [];
           const up = lines.find((l) => l.lineType === "UNIT_PRICE");
-          return { n: i.name, p: +i.price, unit: up && up.values[0] && up.values[0].value };
+          return { n: x.name, p: +x.price, unit: up && up.values[0] && up.values[0].value };
         });
         const b = best(it, cands); if (b) { px.walmart[it.k] = b; ok++; } else px.log.push("walmart miss " + it.k);
       } catch (e) { px.log.push("walmart err " + it.k + " " + e.message); }
-      await new Promise((r) => setTimeout(r, 400));
+      wmState = `running ${i}/${M.items.length} (${ok} found)`;
+      await new Promise((r) => setTimeout(r, 1500 + Math.random() * 1000));
     }
-    return `walmart: ${ok}/${M.items.length}`;
+    wmState = `done: ${ok}/${M.items.length}`;
   }
 
   // Aldi's site renders client-side, so each search loads in a hidden same-origin frame and is read as text.
@@ -140,7 +154,7 @@
       try {
         const q = it.q.replace(/\b\d+(\.\d+)?%?\s*(oz|lb|count|ct)?\b/gi, "").replace(/\b(half gallon|gallon|can|bag|loaf|boneless|skinless|lean|low sodium|uncooked|old fashioned|pure|toasted|sliced white|fresh|large)\b/gi, "").replace(/\s+/g, " ").trim();
         const j = await (await fetch(`/flipp/items/search?locale=en-us&postal_code=${M.postal}&q=${encodeURIComponent(q)}`)).json();
-        const FLIPP_NO = ["pizza", "boyardee", "condensada", "casera", "picante", "ready rice", "soup", "chips", "frozen meal", "kit", "party bowl", "queso"];
+        const FLIPP_NO = ["pizza", "boyardee", "condensada", "casera", "picante", " para ", "barbacoa", "cerveza", "beer", "meatballs", "ready rice", "soup", "chips", "frozen meal", "kit", "party bowl", "queso"];
         const need = it.need.map((w) => w.split("|").map((a) => a.replace(/\d+%?/g, "").trim()).filter(Boolean).join("|")).filter(Boolean);
         const seen = new Set();
         const deals = (j.items || []).filter((x) => STORES[x.merchant_name] && matches({ need, no: it.no.concat(FLIPP_NO) }, x.name)).map((x) => {
@@ -163,9 +177,9 @@
   }
   function dump(store, start = 0, count = 30) {
     const src = px[store] || {}, keys = Object.keys(src).slice(start, start + count);
-    if (store === "deals") return keys.map((k) => src[k].map((d) => [k, d.s, d.u ?? "", d.t, d.n, d.to].join("\t")).join("\n")).join("\n");
-    return keys.map((k) => [k, src[k].u, src[k].p, src[k].n].join("\t")).join("\n");
+    if (store === "deals") return keys.map((k) => src[k].map((d) => [k, d.s, d.u ?? "", d.t, d.n.slice(0, 45), d.to].join("|")).join("\n")).join("\n");
+    return keys.map((k) => [k, src[k].u, src[k].p].join(" ")).join(";");
   }
-  window.PCX = { walmart, aldi: () => { aldiRun(); return "started"; }, flipp, status: () => aldiState, dump, log: () => px.log.join("\n"), counts: () => Object.fromEntries(Object.entries(px).map(([k, v]) => [k, Array.isArray(v) ? v.length : Object.keys(v).length])) };
+  window.PCX = { walmart: () => { walmartRun(); return "started"; }, wmStatus: () => wmState, aldi: () => { aldiRun(); return "started"; }, flipp, status: () => aldiState, dump, log: () => px.log.join("\n"), counts: () => Object.fromEntries(Object.entries(px).map(([k, v]) => [k, Array.isArray(v) ? v.length : Object.keys(v).length])) };
   return "PX ready";
 })();
