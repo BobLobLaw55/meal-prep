@@ -2,10 +2,10 @@ var EMBEDDED_MAP = {"postal":"32615","items":[["beef93","93% lean ground beef",[
 /* Prep Counter weekly price scraper. Paste tools/prices/scrape.bundle.js (this file with the map built in; run
    python3 tools/prices/bundle.py after changing either) — store sites block fetching the map from GitHub. Paste the whole bundle into the browser (javascript_tool) on the page named
    in each step; it reads tools/prices/price_map.json from GitHub and stores results on window.__px.
-   Steps:  1) on https://www.walmart.com/  -> await PX.walmart()
-           2) on https://www.aldi.us/store/aldi/storefront -> PX.aldi() (runs in the background; poll PX.status())
-           3) on https://backflipp.wishabi.com/flipp/items/search?locale=en-us&postal_code=32615&q=eggs -> await PX.flipp()
-           Read results with PX.dump("walmart"|"aldi"|"deals", start, count). Each line is tab-separated. */
+   Steps:  1) on https://www.walmart.com/  -> await PCX.walmart()
+           2) on https://www.aldi.us/store/aldi/storefront -> PCX.aldi() (runs in the background; poll PCX.status())
+           3) on https://backflipp.wishabi.com/flipp/items/search?locale=en-us&postal_code=32615&q=eggs -> await PCX.flipp()
+           Read results with PCX.dump("walmart"|"aldi"|"deals", start, count). Each line is tab-separated. */
 (() => {
   const MAP_URL = "https://raw.githubusercontent.com/BobLobLaw55/meal-prep/main/tools/prices/price_map.json";
   const G = { lb: 453.6, oz: 28.35, floz: 29.57, gal: 3785, qt: 946, pt: 473, l: 1000, ml: 1, g: 1, kg: 1000 };
@@ -162,6 +162,6 @@ var EMBEDDED_MAP = {"postal":"32615","items":[["beef93","93% lean ground beef",[
     if (store === "deals") return keys.map((k) => src[k].map((d) => [k, d.s, d.u ?? "", d.t, d.n, d.to].join("\t")).join("\n")).join("\n");
     return keys.map((k) => [k, src[k].u, src[k].p, src[k].n].join("\t")).join("\n");
   }
-  window.PX = { walmart, aldi: () => { aldiRun(); return "started"; }, flipp, status: () => aldiState, dump, log: () => px.log.join("\n"), counts: () => Object.fromEntries(Object.entries(px).map(([k, v]) => [k, Array.isArray(v) ? v.length : Object.keys(v).length])) };
+  window.PCX = { walmart, aldi: () => { aldiRun(); return "started"; }, flipp, status: () => aldiState, dump, log: () => px.log.join("\n"), counts: () => Object.fromEntries(Object.entries(px).map(([k, v]) => [k, Array.isArray(v) ? v.length : Object.keys(v).length])) };
   return "PX ready";
 })();
